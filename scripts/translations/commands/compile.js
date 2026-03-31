@@ -79,7 +79,7 @@ function runCompile(context) {
 
   if (!context.quiet) {
     console.log(
-      `⟳ Compiling ${languageFiles.length} locale file(s) for production...\n`,
+      `⟳ Compiling ${languageFiles.length} locale ${languageFiles.length === 1 ? "file" : "files"} for production...\n`,
     );
   }
 

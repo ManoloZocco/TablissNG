@@ -55,7 +55,7 @@ You can pass multiple migration mappings in one command:
 ## Updating Existing Translations
 
 1. Run `npm run translations`.
-2. Edit target locale file(s) in `src/locales/lang`.
+2. Edit target locale files in `src/locales/lang`.
 3. Re-run `npm run translations`.
 4. Verify with `npm run translations:status -- <lang>`.
 

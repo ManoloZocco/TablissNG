@@ -178,8 +178,8 @@ const TrelloSettings: FC<Props> = ({
         <label>
           <FormattedMessage
             id="plugins.trello.listSelect"
-            defaultMessage={"Select lists"}
-            description={`Select lists`}
+            defaultMessage="Select lists"
+            description="Select lists"
           />
           <div className="list-select-container">
             {listsLoading || boardsLoading ? (

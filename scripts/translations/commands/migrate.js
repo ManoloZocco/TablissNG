@@ -162,7 +162,7 @@ function runMigrate(targetLang, migrations, context) {
     if (moved > 0 || dropped > 0) {
       writeJsonIfChanged(languagePath, sortKeys(existingMessages), context);
       languageFilesUpdated += 1;
-      const changesSummary = `moved ${moved}, removed ${dropped}${conflicts > 0 ? `, kept ${conflicts} existing value(s)` : ""}`;
+      const changesSummary = `moved ${moved}, removed ${dropped}${conflicts > 0 ? `, kept ${conflicts} existing ${conflicts === 1 ? "value" : "values"}` : ""}`;
       logInfo(context, `  ${languageFile}: ${changesSummary}`);
     }
 
@@ -193,7 +193,7 @@ function runMigrate(targetLang, migrations, context) {
 
   console.log(
     formatSummaryLine(
-      `Migration complete. Updated ${languageFilesUpdated} language file(s) and ${whitelistFilesUpdated} whitelist file(s).`,
+      `Migration complete. Updated ${languageFilesUpdated} language ${languageFilesUpdated === 1 ? "file" : "files"} and ${whitelistFilesUpdated} whitelist ${whitelistFilesUpdated === 1 ? "file" : "files"}.`,
       context,
     ),
   );

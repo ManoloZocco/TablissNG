@@ -205,7 +205,7 @@
   "plugins.links.input.customImageUrlHelp": "Enter a url on the internet for an image file",
   "plugins.links.input.customImageUrlLabel": "Custom Image URL",
   "plugins.links.input.customSvgHelp": "Enter your custom SVG HTML code above to use an icon in your links. For more detailed info see",
-  "plugins.links.input.customSvgHtml": "Custom SVG HTML ",
+  "plugins.links.input.customSvgHtml": "Custom SVG HTML",
   "plugins.links.input.customSvgHtmlLabel": "Custom SVG HTML",
   "plugins.links.input.feather": "Feather",
   "plugins.links.input.fromDuckDuckGo": "From DuckDuckGo",

@@ -86,7 +86,10 @@ function runSync(context) {
   }
   const defaultMessages = normalizeExtractedMessages(extractedRaw);
   const extractedCount = Object.keys(defaultMessages).length;
-  logInfo(context, `  Found ${extractedCount} message(s) in source.\n`);
+  logInfo(
+    context,
+    `  Found ${extractedCount} ${extractedCount === 1 ? "message" : "messages"} in source.\n`,
+  );
 
   const sourceWhitespace = Object.entries(defaultMessages)
     .filter(([, msg]) => msg !== msg.trim())
@@ -98,7 +101,10 @@ function runSync(context) {
   }
 
   const languageFiles = listLanguageFiles();
-  logInfo(context, `⟳ Syncing ${languageFiles.length} language file(s)...\n`);
+  logInfo(
+    context,
+    `⟳ Syncing ${languageFiles.length} language ${languageFiles.length === 1 ? "file" : "files"}...\n`,
+  );
 
   let totalAdded = 0;
   let totalUpdated = 0;

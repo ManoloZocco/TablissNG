@@ -18,10 +18,10 @@ const CssSettings: FC<Props> = ({ data = defaultData, setData }) => (
       />
     </label>
 
-    <FormattedMessage
+    {/* <FormattedMessage
       id=""
       defaultMessage="you have {count}  messages"
-    />
+    /> */}
 
     <p className="info">
       <FormattedMessage

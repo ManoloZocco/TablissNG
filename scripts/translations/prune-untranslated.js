@@ -123,13 +123,15 @@ function run() {
     removedKeys += removedInFile.length;
 
     if (!options.quiet) {
-      console.log(`  ${languageFile}: removed ${removedInFile.length} key(s)`);
+      console.log(
+        `  ${languageFile}: removed ${removedInFile.length} ${removedInFile.length === 1 ? "key" : "keys"}`,
+      );
     }
   }
 
   const summaryPrefix = options.dryRun ? "⊘ DRY RUN" : "✓";
   console.log(
-    `\n${summaryPrefix}: pruned ${removedKeys} key(s) across ${updatedFiles} file(s).`,
+    `\n${summaryPrefix}: pruned ${removedKeys} ${removedKeys === 1 ? "key" : "keys"} across ${updatedFiles} ${updatedFiles === 1 ? "file" : "files"}.`,
   );
 }
 
