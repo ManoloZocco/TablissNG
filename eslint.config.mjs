@@ -1,6 +1,7 @@
 import eslintReact from "@eslint-react/eslint-plugin";
 import eslint from "@eslint/js";
 import { defineConfig } from "eslint/config";
+import formatjs from "eslint-plugin-formatjs";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
@@ -9,7 +10,11 @@ export default defineConfig(
   eslint.configs.recommended,
   tseslint.configs.recommended,
   eslintReact.configs["recommended-typescript"],
+  formatjs.configs.recommended,
   {
+    plugins: {
+      formatjs,
+    },
     rules: {
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/no-unused-vars": "warn",

@@ -62,6 +62,7 @@ const ImageSettings: React.FC<Props> = ({
           <FormattedMessage
             id="backgrounds.media.showNewMedia"
             defaultMessage="Show new media"
+            description="Label for the setting that controls how often new media is shown"
           />
         }
       />
@@ -80,6 +81,7 @@ const ImageSettings: React.FC<Props> = ({
           id="backgrounds.media.uploadCount"
           defaultMessage="{count} media uploaded."
           values={{ count: (cache.items || []).length }}
+          description="Displays the number of currently uploaded media files"
         />{" "}
         <a className="link" onClick={() => setIsExpanded(!isExpanded)}>
           {isExpanded ? "Collapse" : "Expand"}
@@ -115,6 +117,7 @@ const ImageSettings: React.FC<Props> = ({
           <FormattedMessage
             id="backgrounds.media.performanceWarning"
             defaultMessage="Large media may affect performance."
+            description="Warning text indicating that large media files may slow down the extension"
           />
         </p>
       )}
@@ -122,6 +125,7 @@ const ImageSettings: React.FC<Props> = ({
         <FormattedMessage
           id="backgrounds.media.syncWarning"
           defaultMessage="Media does not sync between devices."
+          description="Warning text indicating that custom media files are not synced using browser sync"
         />
       </p>
       <label>

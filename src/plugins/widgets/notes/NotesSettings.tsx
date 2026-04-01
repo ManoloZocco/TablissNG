@@ -37,6 +37,7 @@ const NotesSettings: React.FC<API<Data>> = ({
         <FormattedMessage
           id="plugins.notes.enableMarkdown"
           defaultMessage="Enable Markdown formatting"
+          description="Checkbox label to enable Markdown formatting in notes"
         />
       </label>
 
@@ -45,6 +46,7 @@ const NotesSettings: React.FC<API<Data>> = ({
           <FormattedMessage
             id="plugins.notes.textAlignment"
             defaultMessage="Text Alignment"
+            description="Label for the note text alignment setting"
           />
         </label>
         <div className="alignment">
@@ -97,7 +99,7 @@ const NotesSettings: React.FC<API<Data>> = ({
         <FormattedMessage
           id="plugins.notes.keybind"
           defaultMessage="Notes keybind"
-          description="Notes keybind title"
+          description="Label for setting the keyboard shortcut to open notes"
         />
         <input
           type="text"

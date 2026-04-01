@@ -11,10 +11,12 @@ const messages = defineMessages({
   faviconErrorSize: {
     id: "settings.favicon.error.size",
     defaultMessage: "Image must be smaller than 8KB",
+    description: "Error message when uploaded favicon is too large",
   },
   faviconErrorRead: {
     id: "settings.favicon.error.read",
     defaultMessage: "Failed to read file. Please try again.",
+    description: "Error message when the favicon file cannot be read",
   },
 });
 
@@ -209,42 +211,49 @@ const System: React.FC = () => {
               <FormattedMessage
                 id="settings.favicon.mode.default"
                 defaultMessage="Default"
+                description="Dropdown option to use the default extension favicon"
               />
             </option>
             <option value="size32">
               <FormattedMessage
                 id="settings.favicon.mode.size32"
                 defaultMessage="32x32 Icon"
+                description="Dropdown option to use a 32x32 icon as the favicon"
               />
             </option>
             <option value="size48">
               <FormattedMessage
                 id="settings.favicon.mode.size48"
                 defaultMessage="48x48 Icon"
+                description="Dropdown option to use a 48x48 icon as the favicon"
               />
             </option>
             <option value="size96">
               <FormattedMessage
                 id="settings.favicon.mode.size96"
                 defaultMessage="96x96 Icon"
+                description="Dropdown option to use a 96x96 icon as the favicon"
               />
             </option>
             <option value="size128">
               <FormattedMessage
                 id="settings.favicon.mode.size128"
                 defaultMessage="128x128 Icon"
+                description="Dropdown option to use a 128x128 icon as the favicon"
               />
             </option>
             <option value="custom">
               <FormattedMessage
                 id="settings.favicon.mode.custom"
                 defaultMessage="File Upload..."
+                description="Dropdown option to upload a custom favicon file"
               />
             </option>
             <option value="url">
               <FormattedMessage
                 id="settings.favicon.mode.url"
                 defaultMessage="Custom URL..."
+                description="Dropdown option to use a custom URL for the favicon"
               />
             </option>
           </select>

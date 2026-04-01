@@ -15,26 +15,28 @@ const StoreError: React.FC<Props> = ({ onClose }) => {
           <FormattedMessage
             id="plugins.storageError"
             defaultMessage="TablissNG is unable to load or save settings. This is most commonly caused by running in private browsing mode; but low disk space or a corrupt browser profile can also be the problem."
-            description="Storage error message"
+            description="First paragraph explaining the reasons for a storage error"
           />
         </p>
         <p>
           <FormattedMessage
             id="plugins.storageError2"
             defaultMessage="If you have settings saved with TablissNG, it might be a temporary issue. Try restarting your browser and checking if your settings return."
-            description="Storage error message"
+            description="Second paragraph suggesting to restart the browser to fix the storage error"
           />
         </p>
         <p>
           <FormattedMessage
             id="plugins.storageError3"
             defaultMessage="If they do not return, the {supportGuideLink} covers the common causes and how to resolve them. Otherwise, create an issue at {githubLink} if you are still unable to solve the issue."
+            description="Third paragraph linking to the support guide and GitHub issues"
             values={{
               supportGuideLink: (
                 <a href="https://bookcatkid.github.io/TablissNG/docs/support/storage-errors">
                   <FormattedMessage
                     id="plugins.storageError.guide"
                     defaultMessage="support guide"
+                    description="Link text spanning the support guide description"
                   />
                 </a>
               ),
@@ -43,6 +45,7 @@ const StoreError: React.FC<Props> = ({ onClose }) => {
                   <FormattedMessage
                     id="plugins.storageError.github"
                     defaultMessage="GitHub"
+                    description="Link text pointing to the GitHub issues repository"
                   />
                 </a>
               ),

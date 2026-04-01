@@ -60,6 +60,7 @@ const Notes: React.FC<API<Data>> = ({ data = defaultData, setData }) => {
                       <FormattedMessage
                         id="plugins.notes.clickToAdd"
                         defaultMessage="Click to add note"
+                        description="Placeholder text prompting the user to click to add a new note"
                       />
                     </span>
                   </>

@@ -68,7 +68,7 @@ const SearchSettings: FC<Props> = ({ data = defaultData, setData }) => {
           <p className="info">
             <FormattedMessage
               id="plugins.search.customWarning"
-              defaultMessage="Warning: This functionality is intended for advanced users. {searchTerms} is replaced by the entered search term."
+              defaultMessage="Warning: This functionality is intended for advanced users. '{searchTerms}' is replaced by the entered search term."
               description="Warning about using custom search providers"
             />
           </p>

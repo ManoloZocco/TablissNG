@@ -25,6 +25,7 @@ const GiphySettings: FC<Props> = ({ data = defaultData, setData }) => {
           <FormattedMessage
             id="backgrounds.giphy.showNewGif"
             defaultMessage="Show a new GIF"
+            description="Label for the setting that controls how often a new GIF is shown"
           />
         }
       />
@@ -80,7 +81,7 @@ const GiphySettings: FC<Props> = ({ data = defaultData, setData }) => {
             <FormattedMessage
               id="backgrounds.giphy.search.info"
               defaultMessage="Separate multiple terms with a comma"
-              description="Search info"
+              description="Help text under the search input explaining how to use multiple tags"
             />
           </p>
         </>

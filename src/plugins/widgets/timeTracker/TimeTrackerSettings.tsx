@@ -47,6 +47,7 @@ const TimeTrackerSettings: FC<Props> = ({ data = defaultData, setData }) => {
         <FormattedMessage
           id="plugins.timeTracker.eventDateTime"
           defaultMessage="Event date and time"
+          description="Input label for the event date and time"
         />
         <input
           type="datetime-local"
@@ -67,6 +68,7 @@ const TimeTrackerSettings: FC<Props> = ({ data = defaultData, setData }) => {
         <FormattedMessage
           id="plugins.timeTracker.titleOptional"
           defaultMessage="Title (optional)"
+          description="Input label for the optional event title"
         />
         <input
           type="text"
@@ -87,6 +89,7 @@ const TimeTrackerSettings: FC<Props> = ({ data = defaultData, setData }) => {
         <FormattedMessage
           id="plugins.timeTracker.showCompletionMessage"
           defaultMessage="Show completion message"
+          description="Checkbox label to enable showing a message when the event happens"
         />
       </label>
 
@@ -95,6 +98,7 @@ const TimeTrackerSettings: FC<Props> = ({ data = defaultData, setData }) => {
           <FormattedMessage
             id="plugins.timeTracker.completionMessage"
             defaultMessage="Completion message"
+            description="Input label for setting a custom completion message"
           />
           <input
             type="text"
@@ -111,6 +115,7 @@ const TimeTrackerSettings: FC<Props> = ({ data = defaultData, setData }) => {
         <FormattedMessage
           id="plugins.timeTracker.displayMode"
           defaultMessage="Display mode"
+          description="Label for the time tracker display mode dropdown"
         />
         <select
           value={data.displayMode}
@@ -125,12 +130,14 @@ const TimeTrackerSettings: FC<Props> = ({ data = defaultData, setData }) => {
             <FormattedMessage
               id="plugins.timeTracker.compact"
               defaultMessage="Compact"
+              description="Dropdown option for a compact display mode"
             />
           </option>
           <option value="detailed">
             <FormattedMessage
               id="plugins.timeTracker.detailed"
               defaultMessage="Detailed"
+              description="Dropdown option for a detailed display mode"
             />
           </option>
         </select>
@@ -147,6 +154,7 @@ const TimeTrackerSettings: FC<Props> = ({ data = defaultData, setData }) => {
         <FormattedMessage
           id="plugins.timeTracker.italicizeTime"
           defaultMessage="Italicize time"
+          description="Checkbox label to make the time values italicized"
         />
       </label>
     </div>

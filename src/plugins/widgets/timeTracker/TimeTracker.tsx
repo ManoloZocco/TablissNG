@@ -112,6 +112,7 @@ const TimeTracker: FC<Props> = ({ data = defaultData }) => {
               <FormattedMessage
                 id="plugins.timeTracker.was"
                 defaultMessage="was"
+                description="Text indicating the tracked event occurred in the past"
               />{" "}
               <span className={data.italicizeTime ? "italic-time" : ""}>
                 <FormattedRelativeTime value={value} unit={unit} />
@@ -122,6 +123,7 @@ const TimeTracker: FC<Props> = ({ data = defaultData }) => {
               <FormattedMessage
                 id="plugins.timeTracker.isIn"
                 defaultMessage="is"
+                description="Text indicating the tracked event will occur in the future"
               />{" "}
               <span className={data.italicizeTime ? "italic-time" : ""}>
                 <FormattedRelativeTime value={value} unit={unit} />
