@@ -219,9 +219,9 @@ const SearchSettings: FC<Props> = ({ data = defaultData, setData }) => {
       {data.suggestionsEngine && (
         <label>
           <FormattedMessage
-            id="plugins.search.suggestionsQuanitity"
-            defaultMessage="Suggestion Quanitity"
-            description="Suggestion Quanitity title"
+            id="plugins.search.suggestionsQuantity"
+            defaultMessage="Suggestion Quantity"
+            description="Number of search suggestions to show"
           />
           <input
             type="number"

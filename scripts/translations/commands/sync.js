@@ -58,12 +58,6 @@ function mergeLanguage(defaultMessages, existingMessages, whitelistedIds) {
 
   for (const id of Object.keys(existingMessages)) {
     if (!(id in defaultMessages)) {
-      // Keep unknown keys. They may be dynamic IDs that extraction can't statically detect.
-      merged[id] = existingMessages[id];
-      continue;
-    }
-
-    if (!(id in merged)) {
       changes.removed.push(id);
     }
   }

@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from "react";
+import { FormattedMessage } from "react-intl";
 import { Props, defaultCache, defaultData } from "./types";
 import { Display } from "../links/Display";
 import "./TopSites.sass";
@@ -70,7 +71,11 @@ export const TopSites: FC<Props> = ({
           style={{ padding: "0.5em 1em" }}
           onClick={requestPermission}
         >
-          Top Sites permission required for this widget (click to request)
+          <FormattedMessage
+            id="plugins.topSites.permissionRequired"
+            defaultMessage="Top Sites permission required for this widget (click to request)"
+            description="Button text shown when the Top Sites permission is missing"
+          />
         </button>
       </div>
     );

@@ -282,3 +282,11 @@ export const backgroundMessages = defineMessages({
     description: "Label for background search term input",
   },
 });
+
+export const commonMessages = defineMessages({
+  loading: {
+    id: "common.loading",
+    defaultMessage: "Loading...",
+    description: "Generic loading message used across the application",
+  },
+});

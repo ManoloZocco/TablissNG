@@ -18,6 +18,11 @@ const messages = defineMessages({
     defaultMessage: "Failed to read file. Please try again.",
     description: "Error message when the favicon file cannot be read",
   },
+  faviconPlaceholder: {
+    id: "settings.favicon.placeholder",
+    defaultMessage: "https://example.com/favicon.ico",
+    description: "Placeholder for the custom favicon URL input",
+  },
 });
 
 const positions = [
@@ -261,7 +266,7 @@ const System: React.FC = () => {
           {favicon.mode === "url" && (
             <input
               type="text"
-              placeholder="https://example.com/favicon.ico"
+              placeholder={intl.formatMessage(messages.faviconPlaceholder)}
               value={favicon.url || ""}
               onChange={(e) => setFavicon({ ...favicon, url: e.target.value })}
             />

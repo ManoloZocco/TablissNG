@@ -10,7 +10,13 @@ const StoreError: React.FC<Props> = ({ onClose }) => {
   return (
     <Modal onClose={onClose}>
       <div className="Settings">
-        <h2 className="no-margin">Storage Error</h2>
+        <h2 className="no-margin">
+          <FormattedMessage
+            id="plugins.storageError.title"
+            defaultMessage="Storage Error"
+            description="Title for the storage error modal"
+          />
+        </h2>
         <p className="large">
           <FormattedMessage
             id="plugins.storageError"
