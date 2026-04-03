@@ -71,7 +71,9 @@ function parseMigrateArgs(args) {
     if (arg === "--map") {
       const next = args[i + 1];
       if (!next) {
-        console.error("✗ Missing value after --map. Expected old.id=new.id");
+        console.error(
+          "✗ Missing value after --map. Expected --map old.id=new.id",
+        );
         process.exit(1);
       }
       pairArgs.push(next);
@@ -81,11 +83,6 @@ function parseMigrateArgs(args) {
 
     if (arg.startsWith("--map=")) {
       pairArgs.push(arg.slice("--map=".length));
-      continue;
-    }
-
-    if (arg.includes("=")) {
-      pairArgs.push(arg);
       continue;
     }
 

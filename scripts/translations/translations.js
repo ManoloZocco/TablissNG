@@ -38,9 +38,9 @@ Commands:
 	status [lang]       Show translation status for all or a specific language
 	compile             Compile stripped/minified locale files for production build
 	create <lang>       Create a new language file with default English values
-	migrate [lang] <mapping...>
-											Migrate renamed IDs in language/whitelist files.
-											Mapping format: old.id=new.id (repeatable)
+	migrate [lang] --map <mapping...>
+									Migrate renamed IDs in language/whitelist files.
+									Mapping format: --map old.id=new.id (repeatable)
 	help                Show this help message
 
 Examples:
@@ -51,7 +51,7 @@ Examples:
 	node scripts/translations/translations.js status fr    # untranslated keys in French
 	node scripts/translations/translations.js compile      # write production locale artifacts
 	node scripts/translations/translations.js create de-AT # create Austrian German
-	node scripts/translations/translations.js migrate es plugins.github.month.jan=time.month.short.jan
+	node scripts/translations/translations.js migrate es --map plugins.github.month.jan=time.month.short.jan
 	node scripts/translations/translations.js --dry-run migrate --map plugins.github.months=time.month`);
 }
 
