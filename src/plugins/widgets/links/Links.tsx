@@ -6,7 +6,7 @@ import { defineMessages, useIntl } from "react-intl";
 
 import { useKeyPress, useToggle } from "../../../hooks";
 import { Display } from "./Display";
-import { defaultCache, defaultData, Props } from "./types";
+import { defaultCache, defaultData, Link, Props } from "./types";
 
 const messages = defineMessages({
   showQuickLinks: {

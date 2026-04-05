@@ -1,12 +1,11 @@
 import "./Input.sass";
 
 import { Icon } from "@iconify/react";
-import icons from "feather-icons/dist/icons.json";
 import type { ChangeEvent } from "react";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useState } from "react";
 import { defineMessages, FormattedMessage, useIntl } from "react-intl";
 
-import { addIconData, normalizeUrl } from "../../../utils";
+import { normalizeUrl } from "../../../utils";
 import {
   DownIcon,
   IconButton,

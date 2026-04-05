@@ -1,4 +1,3 @@
-import { Icon } from "@iconify/react";
 import { type FC, type MouseEvent, useMemo } from "react";
 import { defineMessages, useIntl } from "react-intl";
 
