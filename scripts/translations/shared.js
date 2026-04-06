@@ -18,10 +18,9 @@ function readJson(filePath, fallback) {
   try {
     return JSON.parse(raw);
   } catch (err) {
-    console.error(
-      `  ✗ Failed to parse ${path.basename(filePath)}: ${err.message}`,
-    );
-    return fallback;
+    const rel = path.relative(rootDir, filePath);
+    console.error(`\n✗ Failed to parse ${rel}: ${err.message}`);
+    process.exit(1);
   }
 }
 

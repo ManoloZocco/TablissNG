@@ -56,13 +56,6 @@ function compileLanguage(defaultMessages, existingMessages, whitelistedIds) {
     }
   }
 
-  // Preserve unknown/dynamic keys that are not extractable from source.
-  for (const [id, value] of Object.entries(existingMessages)) {
-    if (!Object.hasOwn(defaultMessages, id) && typeof value === "string") {
-      compiled[id] = value;
-    }
-  }
-
   return sortKeys(compiled);
 }
 
@@ -83,7 +76,9 @@ function runCompile(context) {
     );
   }
 
-  ensureCleanCompiledDirectory();
+  if (!context.dryRun) {
+    ensureCleanCompiledDirectory();
+  }
 
   let totalKeys = 0;
 

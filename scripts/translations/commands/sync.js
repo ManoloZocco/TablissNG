@@ -127,7 +127,9 @@ function runSync(context) {
       );
     }
     if (mergedString !== existingString) {
-      fs.writeFileSync(languagePath, mergedString);
+      if (!context.dryRun) {
+        fs.writeFileSync(languagePath, mergedString);
+      }
       logInfo(context, `  ${languageFile}: (sorted)`);
       if (changes.added.length > 0) {
         logInfo(

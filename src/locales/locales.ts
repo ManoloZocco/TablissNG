@@ -12,8 +12,8 @@ type LocaleModule = { default: LocaleMessages };
 type LocaleLoader = () => Promise<LocaleModule>;
 
 export const baseMessages: LocaleMessages = Object.fromEntries(
-  extractedMessages.map((entry) => [
-    entry.id,
+  Object.entries(extractedMessages).map(([id, entry]) => [
+    id,
     typeof entry.defaultMessage === "string" ? entry.defaultMessage : "",
   ]),
 );
