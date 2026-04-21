@@ -60,7 +60,6 @@
     "react-github-btn": "^1.4.0",
     "react-github-calendar": "^5.0.6",
     "react-intl": "^10.1.2",
-    "react-markdown": "^10.1.0",
     "react-moveable": "^0.56.0",
     "tlds": "^1.261.0",
     "webextension-polyfill": "^0.12.0",
@@ -92,7 +91,7 @@
     "sass": "^1.99.0",
     "sass-loader": "^16.0.7",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.58.2",
+    "typescript-eslint": "^8.59.0",
     "typescript-react-intl": "^0.4.1",
     "workbox-build": "^7.4.0"
   }
