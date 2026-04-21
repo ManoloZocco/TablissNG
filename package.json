@@ -69,7 +69,7 @@
     "@eslint/js": "^10.0.1",
     "@rspack/cli": "2.0.0-rc.3",
     "@rspack/core": "2.0.0-rc.3",
-    "@rspack/dev-server": "2.0.0-rc.3",
+    "@rspack/dev-server": "2.0.0",
     "@rspack/plugin-react-refresh": "^2.0.0",
     "@swc/jest": "^0.2.39",
     "@types/core-js": "~2.5.8",
@@ -93,5 +93,11 @@
     "typescript-eslint": "^8.59.0",
     "typescript-react-intl": "^0.4.1",
     "workbox-build": "^7.4.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "serialize-javascript": ">=7.0.5",
+      "follow-redirects": ">=1.16.0"
+    }
   }
 }
