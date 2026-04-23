@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { useMemo } from "react";
-import { defineMessages, FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 
 import { setBackground } from "../../db/action";
 import { BackgroundDisplay, BackgroundPosition, db } from "../../db/state";
