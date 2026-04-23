@@ -336,7 +336,7 @@
   "plugins.quotes.unavailableNotice": "Citações diárias de 'They Said So' não estão mais disponíveis, peço desculpas pelo inconveniente que isso possa ter causado.",
   "plugins.search.custom": "Personalizado",
   "plugins.search.customProvider": "Provedor de busca personalizado",
-  "plugins.search.customWarning": "Aviso: Esta funcionalidade é destinada a usuários avançados. {searchTerms} é substituído pelo termo de busca inserido.",
+  "plugins.search.customWarning": "Aviso: Esta funcionalidade é destinada a usuários avançados. '{searchTerms}' é substituído pelo termo de busca inserido.",
   "plugins.search.customWidth": "Custom Width (px)",
   "plugins.search.default": "Padrão do Navegador",
   "plugins.search.description": "Pesquise na web usando seu mecanismo favorito.",

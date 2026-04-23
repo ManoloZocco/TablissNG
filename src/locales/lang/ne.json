@@ -336,7 +336,7 @@
   "plugins.quotes.unavailableNotice": "Daily Quotes from 'They Said So' are no longer available, I apologize for the inconvenience this may have caused.",
   "plugins.search.custom": "Custom",
   "plugins.search.customProvider": "Custom Search Provider",
-  "plugins.search.customWarning": "Warning: This functionality is intended for advanced users. {searchTerms} is replaced by the entered search term.",
+  "plugins.search.customWarning": "Warning: This functionality is intended for advanced users. '{searchTerms}' is replaced by the entered search term.",
   "plugins.search.customWidth": "Custom Width (px)",
   "plugins.search.default": "Browser Default",
   "plugins.search.description": "Search the web using your favorite engine.",

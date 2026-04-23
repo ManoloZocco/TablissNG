@@ -1,7 +1,7 @@
 import { type FC, type PropsWithChildren, useEffect, useState } from "react";
 import { IntlProvider as ReactIntlProvider } from "react-intl";
 
-import { db } from "../db/state";
+import { db, dbStorage } from "../db/state";
 import { useValue } from "../lib/db/react";
 import {
   baseMessages,
@@ -10,24 +10,29 @@ import {
   resolveLocale,
 } from "./locales";
 
-const defaultMessages: LocaleMessages = DEV ? {} : baseMessages;
-
 const IntlProvider: FC<PropsWithChildren> = ({ children }) => {
   const locale = useValue(db, "locale");
-  const [messages, setMessages] = useState<LocaleMessages>(defaultMessages);
+  const [messages, setMessages] = useState<LocaleMessages | null>(null);
 
   useEffect(() => {
     let cancelled = false;
-    void loadMessages(locale).then((nextMessages) => {
+
+    // Wait for storage to hydrate before loading messages so we use the
+    // persisted locale rather than the init default.
+    (async () => {
+      await dbStorage.catch(() => {});
+      const nextMessages = await loadMessages(locale);
       if (!cancelled) {
-        setMessages(DEV ? nextMessages : { ...baseMessages, ...nextMessages });
+        setMessages({ ...baseMessages, ...nextMessages });
       }
-    });
+    })();
 
     return () => {
       cancelled = true;
     };
   }, [locale]);
+
+  if (!messages) return null;
 
   return (
     <ReactIntlProvider

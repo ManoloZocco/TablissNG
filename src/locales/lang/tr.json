@@ -336,7 +336,7 @@
   "plugins.quotes.unavailableNotice": "'They Said So'dan Günlük Alıntılar artık mevcut değil, bu durumun neden olabileceği rahatsızlıktan dolayı özür dilerim.",
   "plugins.search.custom": "Özel",
   "plugins.search.customProvider": "Özel Arama Sağlayıcısı",
-  "plugins.search.customWarning": "Uyarı: Bu işlevsellik ileri düzey kullanıcılar içindir. {searchTerms}, girilen arama terimiyle değiştirilir.",
+  "plugins.search.customWarning": "Uyarı: Bu işlevsellik ileri düzey kullanıcılar içindir. '{searchTerms}', girilen arama terimiyle değiştirilir.",
   "plugins.search.customWidth": "Custom Width (px)",
   "plugins.search.default": "Tarayıcı Varsayılanı",
   "plugins.search.description": "Favori motorunuzu kullanarak web'de arama yapın.",

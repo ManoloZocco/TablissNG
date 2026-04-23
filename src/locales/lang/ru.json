@@ -336,7 +336,7 @@
   "plugins.quotes.unavailableNotice": "Ежедневные цитаты от 'They Said So' больше недоступны. Извините за возможные неудобства.",
   "plugins.search.custom": "Пользовательский",
   "plugins.search.customProvider": "Пользовательская поисковая система",
-  "plugins.search.customWarning": "Внимание: эта функция предназначена для опытных пользователей. {searchTerms} будет заменено на введённый поисковый запрос.",
+  "plugins.search.customWarning": "Внимание: эта функция предназначена для опытных пользователей. '{searchTerms}' будет заменено на введённый поисковый запрос.",
   "plugins.search.customWidth": "Custom Width (px)",
   "plugins.search.default": "По умолчанию в браузере",
   "plugins.search.description": "Поиск в интернете через любимую поисковую систему.",

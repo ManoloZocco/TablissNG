@@ -336,7 +336,7 @@
   "plugins.quotes.unavailableNotice": "Denní citáty z 'They Said So' již nejsou dostupné, omlouvám se za případné nepříjemnosti.",
   "plugins.search.custom": "Vlastní",
   "plugins.search.customProvider": "Vlastní poskytovatel vyhledávání",
-  "plugins.search.customWarning": "Upozornění: Tato funkce je určena pro pokročilé uživatele. {searchTerms} bude nahrazen zadaným vyhledávacím výrazem.",
+  "plugins.search.customWarning": "Upozornění: Tato funkce je určena pro pokročilé uživatele. '{searchTerms}' bude nahrazen zadaným vyhledávacím výrazem.",
   "plugins.search.customWidth": "Custom Width (px)",
   "plugins.search.default": "Výchozí prohlížeč",
   "plugins.search.description": "Vyhledávejte na webu pomocí svého oblíbeného vyhledávače.",

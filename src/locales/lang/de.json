@@ -336,7 +336,7 @@
   "plugins.quotes.unavailableNotice": "Tägliche Zitate von 'They Said So' sind nicht mehr verfügbar, entschuldige die Unannehmlichkeiten.",
   "plugins.search.custom": "Benutzerdefiniert",
   "plugins.search.customProvider": "Benutzerdefinierter Suchanbieter",
-  "plugins.search.customWarning": "Warnung: Diese Funktionalität ist für fortgeschrittene Benutzer vorgesehen. {searchTerms} wird durch den eingegebenen Suchbegriff ersetzt.",
+  "plugins.search.customWarning": "Warnung: Diese Funktionalität ist für fortgeschrittene Benutzer vorgesehen. '{searchTerms}' wird durch den eingegebenen Suchbegriff ersetzt.",
   "plugins.search.customWidth": "Custom Width (px)",
   "plugins.search.default": "Browserstandard",
   "plugins.search.description": "Durchsuche das Web mit deiner bevorzugten Suchmaschine.",

@@ -17,12 +17,13 @@ export const localeOptions: LocaleOption[] = [
   { code: "en", title: "English (American)", label: "English (US)" },
   { code: "es", title: "Spanish", label: "Español" },
   { code: "fa", title: "Persian", label: "پارسی" },
+  { code: "fi", title: "Finnish", label: "Suomi" },
   { code: "fr", title: "French", label: "Français" },
-  { code: "he", title: "Hebrew", label: "עברית" },
   { code: "ga", title: "Gaeilge", label: "Gaeilge" },
   { code: "gd", title: "Scottish Gaelic", label: "Gàidhlig" },
   { code: "gl", title: "Galician", label: "Galego" },
   { code: "gu", title: "Gujarati", label: "ગુજરાતી" },
+  { code: "he", title: "Hebrew", label: "עברית" },
   { code: "hi", title: "Hindi", label: "हिन्दी" },
   { code: "hu", title: "Hungarian", label: "Magyar" },
   { code: "id", title: "Indonesian", label: "Indonesian" },
@@ -47,12 +48,12 @@ export const localeOptions: LocaleOption[] = [
   { code: "sk", title: "Slovak", label: "Slovenčina" },
   { code: "sq", title: "Albanian", label: "Shqip" },
   { code: "sr", title: "Serbian", label: "Српски" },
-  { code: "fi", title: "Finnish", label: "Suomi" },
   { code: "sv", title: "Swedish", label: "Svenska" },
   { code: "ta", title: "Tamil", label: "தமிழ்" },
   { code: "th", title: "Thai", label: "ไทย" },
-  { code: "tr", title: "Turkish", label: "Türkçe" },
   { code: "tok", title: "toki pona", label: "Toki Pona" },
+  { code: "tr", title: "Turkish", label: "Türkçe" },
+  { code: "uk", title: "Ukrainian", label: "Українська" },
   { code: "vi", title: "Vietnamese", label: "Tiếng Việt" },
   { code: "zh-CN", title: "Simplified Chinese (China)", label: "中文（中国）" },
   {
@@ -60,7 +61,6 @@ export const localeOptions: LocaleOption[] = [
     title: "Traditional Chinese (Taiwan)",
     label: "中文（台灣）",
   },
-  { code: "uk", title: "Ukrainian", label: "Українська" },
 ];
 
 export const locales = localeOptions.map((locale) => locale.code);

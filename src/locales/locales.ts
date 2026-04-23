@@ -39,7 +39,7 @@ const localeLoaders: Record<string, LocaleLoader> = Object.fromEntries(
   translatableLocales.map((code) => [code, createLocaleLoader(code)]),
 );
 
-const loadedLocaleMessages = new Map<string, Promise<LocaleMessages>>();
+const loadedLocaleMessages = new Map<string, LocaleMessages>();
 
 export const locales = [...localeCodes, ...Object.keys(localeAliases)];
 export const defaultLocale = pick(locales, "en");
@@ -74,10 +74,12 @@ export const loadMessages = async (locale: string): Promise<LocaleMessages> => {
   const loader = localeLoaders[resolvedLocale];
   if (!loader) return {};
 
-  const request = loader()
-    .then((module) => module.default)
-    .catch(() => ({}));
-
-  loadedLocaleMessages.set(resolvedLocale, request);
-  return request;
+  try {
+    const module = await loader();
+    const messages = module.default;
+    loadedLocaleMessages.set(resolvedLocale, messages);
+    return messages;
+  } catch {
+    return {};
+  }
 };

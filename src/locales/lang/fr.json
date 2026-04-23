@@ -336,7 +336,7 @@
   "plugins.quotes.unavailableNotice": "Les citations quotidiennes de « They Said So » ne sont plus disponibles. Je vous prie de m’excuser pour la gêne occasionnée.",
   "plugins.search.custom": "Personnalisé",
   "plugins.search.customProvider": "Moteur de recherche personnalisé",
-  "plugins.search.customWarning": "Avertissement : cette fonctionnalité est réservée aux utilisateurs avancés. {searchTerms} est remplacé par le terme de recherche saisi.",
+  "plugins.search.customWarning": "Avertissement : cette fonctionnalité est réservée aux utilisateurs avancés. '{searchTerms}' est remplacé par le terme de recherche saisi.",
   "plugins.search.customWidth": "Largeur personnalisée (px)",
   "plugins.search.default": "Défaut du navigateur",
   "plugins.search.description": "Effectuez une recherche sur Internet à l’aide de votre moteur de recherche préféré.",

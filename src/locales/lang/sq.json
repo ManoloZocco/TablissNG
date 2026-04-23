@@ -336,7 +336,7 @@
   "plugins.quotes.unavailableNotice": "Thëniet ditore nga 'They Said So' nuk janë më në dispozicion. Na vjen keq për shqetësimin.",
   "plugins.search.custom": "Personalizuar",
   "plugins.search.customProvider": "Motor kërkimi i personalizuar",
-  "plugins.search.customWarning": "Kujdes: kjo veçori është për përdorues të avancuar. {searchTerms} zëvendësohet nga termi i kërkimit.",
+  "plugins.search.customWarning": "Kujdes: kjo veçori është për përdorues të avancuar. '{searchTerms}' zëvendësohet nga termi i kërkimit.",
   "plugins.search.customWidth": "Custom Width (px)",
   "plugins.search.default": "Parazgjedhja e shfletuesit",
   "plugins.search.description": "Kërko në internet me motorin tënd të preferuar.",

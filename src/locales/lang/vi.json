@@ -336,7 +336,7 @@
   "plugins.quotes.unavailableNotice": "Trích dẫn hằng ngày từ 'They Said So' không còn khả dụng nữa, tôi xin lỗi vì sự bất tiện này.",
   "plugins.search.custom": "Tùy chỉnh",
   "plugins.search.customProvider": "Nhà cung cấp tìm kiếm tùy chỉnh",
-  "plugins.search.customWarning": "Cảnh báo: Chức năng này dành cho người dùng nâng cao. {searchTerms} được thay thế bằng từ khóa tìm kiếm đã nhập.",
+  "plugins.search.customWarning": "Cảnh báo: Chức năng này dành cho người dùng nâng cao. '{searchTerms}' được thay thế bằng từ khóa tìm kiếm đã nhập.",
   "plugins.search.customWidth": "Chiều rộng tùy chỉnh (px)",
   "plugins.search.default": "Mặc định trình duyệt",
   "plugins.search.description": "Tìm kiếm trên web với công cụ yêu thích của bạn.",

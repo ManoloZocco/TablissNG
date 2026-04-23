@@ -336,7 +336,7 @@
   "plugins.quotes.unavailableNotice": "lipu 'ona li toki e ni' la toki jan suno li ken ala. mi pakala tan ale ni.",
   "plugins.search.custom": "wile sina",
   "plugins.search.customProvider": "ilo alasa pi wile sina",
-  "plugins.search.customWarning": "o lukin: ken ni li tawa jan sona taso. nimi {searchTerms} li kama nimi pana sina.",
+  "plugins.search.customWarning": "o lukin: ken ni li tawa jan sona taso. nimi '{searchTerms}' li kama nimi pana sina.",
   "plugins.search.customWidth": "suli poka pi wile sina (leko lili)",
   "plugins.search.default": "wile pi ilo alasa sina",
   "plugins.search.description": "o alasa kepeken ilo pi wile sina.",
