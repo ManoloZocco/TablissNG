@@ -67,8 +67,8 @@
   "devDependencies": {
     "@eslint-react/eslint-plugin": "^4.2.3",
     "@eslint/js": "^10.0.1",
-    "@rspack/cli": "2.0.0-rc.3",
-    "@rspack/core": "2.0.0-rc.3",
+    "@rspack/cli": "2.0.0",
+    "@rspack/core": "2.0.0",
     "@rspack/dev-server": "2.0.0",
     "@rspack/plugin-react-refresh": "^2.0.0",
     "@swc/jest": "^0.2.39",
