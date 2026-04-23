@@ -6,6 +6,8 @@ import simpleImportSort from "eslint-plugin-simple-import-sort";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
+import requireOptionValueRule from "./custom-eslint-rules/require-option-value.mjs";
+
 /** @type {import('eslint').Linter.Config} */
 export default defineConfig(
   {
@@ -19,6 +21,11 @@ export default defineConfig(
     plugins: {
       formatjs,
       "simple-import-sort": simpleImportSort,
+      local: {
+        rules: {
+          "require-option-value": requireOptionValueRule,
+        },
+      },
     },
     rules: {
       "@typescript-eslint/no-explicit-any": "warn",
@@ -28,6 +35,7 @@ export default defineConfig(
       "@eslint-react/no-context-provider": "off",
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
+      "local/require-option-value": "error",
     },
   },
   {

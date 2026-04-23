@@ -1,5 +1,5 @@
 import { DB, Storage } from "../lib";
-import { defaultLocale } from "../locales/locales";
+import { defaultLocale } from "../locales";
 
 /**
  * Database state
