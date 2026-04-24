@@ -79,7 +79,8 @@ export const loadMessages = async (locale: string): Promise<LocaleMessages> => {
     const messages = module.default;
     loadedLocaleMessages.set(resolvedLocale, messages);
     return messages;
-  } catch {
+  } catch (error) {
+    console.error(`Failed to load locale "${resolvedLocale}":`, error);
     return {};
   }
 };

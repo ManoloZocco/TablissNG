@@ -85,15 +85,16 @@ const Root: FC = () => {
   useFavicon();
 
   const pushError = usePushError();
-  const handleError =
-    (message: string, showError: boolean) => (error: Error) => {
-      pushError({ message });
-      console.error(error);
-      console.error("Caused by:", error.cause);
-      if (showError) setError(true);
-    };
 
   useEffect(() => {
+    const handleError =
+      (message: string, showError: boolean) => (error: Error) => {
+        pushError({ message });
+        console.error(error);
+        console.error("Caused by:", error.cause);
+        if (showError) setError(true);
+      };
+
     const subscriptions = Promise.all([
       // Config database
       dbStorage
@@ -135,7 +136,7 @@ const Root: FC = () => {
         if (cacheSub) cacheSub();
       });
     };
-  }, [intl]);
+  }, [intl, pushError]);
 
   const { errors, settings, toggleErrors } = useContext(UiContext);
 

@@ -6,7 +6,7 @@ export type LocaleOption = {
 
 export const localeOptions: LocaleOption[] = [
   { code: "ar", title: "Arabic", label: "العربية" },
-  { code: "be", title: "Belorussian", label: "Беларуская" },
+  { code: "be", title: "Belarusian", label: "Беларуская" },
   { code: "ca-ES", title: "Catalan", label: "Català" },
   { code: "cs", title: "Czech", label: "Čeština" },
   { code: "de", title: "German", label: "Deutsch" },
@@ -30,7 +30,7 @@ export const localeOptions: LocaleOption[] = [
   { code: "it", title: "Italian", label: "Italiano" },
   { code: "ja", title: "Japanese", label: "日本語" },
   { code: "ko", title: "Korean", label: "한국어" },
-  { code: "kp", title: "North Korean", label: "조선말" },
+  { code: "ko-KP", title: "Korean (North Korea)", label: "조선말" },
   { code: "lb", title: "Luxembourgish", label: "Lëtzebuergesch" },
   { code: "lt", title: "Lithuanian", label: "Lietuvių k." },
   { code: "ne", title: "Nepali", label: "Nepali" },

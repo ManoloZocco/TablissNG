@@ -9,7 +9,6 @@ const {
   readJson,
   listLanguageFiles,
   getWhitelistedIds,
-  sortKeys,
 } = require("../shared");
 
 const rootDir = path.resolve(__dirname, "..", "..", "..");
@@ -56,7 +55,7 @@ function compileLanguage(defaultMessages, existingMessages, whitelistedIds) {
     }
   }
 
-  return sortKeys(compiled);
+  return compiled;
 }
 
 function runCompile(context) {
@@ -66,7 +65,7 @@ function runCompile(context) {
   extractMessages();
 
   const defaultMessages = normalizeExtractedMessages(
-    readJson(extractedMessagesPath, {}),
+    readJson(extractedMessagesPath),
   );
   const languageFiles = listLanguageFiles();
 
@@ -85,7 +84,7 @@ function runCompile(context) {
   for (const languageFile of languageFiles) {
     const sourcePath = path.join(localesDir, languageFile);
     const targetPath = path.join(compiledLocalesDir, languageFile);
-    const existingMessages = readJson(sourcePath, {});
+    const existingMessages = readJson(sourcePath);
     const whitelistedIds = getWhitelistedIds(languageFile);
     const compiled = compileLanguage(
       defaultMessages,

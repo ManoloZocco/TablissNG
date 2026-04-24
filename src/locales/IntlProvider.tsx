@@ -21,9 +21,16 @@ const IntlProvider: FC<PropsWithChildren> = ({ children }) => {
     // persisted locale rather than the init default.
     (async () => {
       await dbStorage.catch(() => {});
-      const nextMessages = await loadMessages(locale);
-      if (!cancelled) {
-        setMessages({ ...baseMessages, ...nextMessages });
+      try {
+        const nextMessages = await loadMessages(locale);
+        if (!cancelled) {
+          setMessages({ ...baseMessages, ...nextMessages });
+        }
+      } catch (error) {
+        console.error(`Failed to load locale "${locale}":`, error);
+        if (!cancelled) {
+          setMessages(baseMessages);
+        }
       }
     })();
 

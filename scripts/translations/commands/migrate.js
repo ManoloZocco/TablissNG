@@ -16,7 +16,7 @@ const {
 
 function getDefaultMessagesSafe() {
   if (!fs.existsSync(extractedMessagesPath)) return {};
-  const extractedRaw = readJson(extractedMessagesPath, {});
+  const extractedRaw = readJson(extractedMessagesPath);
   if (
     !extractedRaw ||
     typeof extractedRaw !== "object" ||
@@ -124,7 +124,7 @@ function runMigrate(targetLang, migrations, context) {
       continue;
     }
 
-    const existingMessages = readJson(languagePath, {});
+    const existingMessages = readJson(languagePath);
     if (!validateMessageObject(existingMessages, languageFile)) {
       continue;
     }
@@ -167,7 +167,7 @@ function runMigrate(targetLang, migrations, context) {
     const whitelistPath = path.join(localesDir, `whitelist_${language}.json`);
     if (!fs.existsSync(whitelistPath)) continue;
 
-    const whitelist = readJson(whitelistPath, []);
+    const whitelist = readJson(whitelistPath);
     if (!Array.isArray(whitelist)) continue;
 
     let whitelistChanged = false;

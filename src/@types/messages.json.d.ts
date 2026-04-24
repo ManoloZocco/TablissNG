@@ -2,7 +2,7 @@ declare module "*/messages.json" {
   const value: Record<
     string,
     {
-      defaultMessage?: string;
+      defaultMessage: string;
       description?: string;
     }
   >;

@@ -32,7 +32,7 @@ const NotesSettings: FC<API<Data>> = ({ data = defaultData, setData }) => {
           onChange={(e) =>
             setData({ ...data, markdownEnabled: e.target.checked })
           }
-        />{" "}
+        />
         <FormattedMessage
           id="plugins.notes.enableMarkdown"
           defaultMessage="Enable Markdown formatting"
@@ -62,7 +62,13 @@ const NotesSettings: FC<API<Data>> = ({ data = defaultData, setData }) => {
       </div>
 
       <div>
-        <label>Icon Alignment</label>
+        <label>
+          <FormattedMessage
+            id="plugins.notes.iconAlignment"
+            defaultMessage="Icon Alignment"
+            description="Label for the note icon alignment setting"
+          />
+        </label>
         <div className="alignment">
           {alignments.map((alignment) => (
             <IconButton
@@ -77,7 +83,13 @@ const NotesSettings: FC<API<Data>> = ({ data = defaultData, setData }) => {
       </div>
 
       <div>
-        <label>Placeholder Style</label>
+        <label>
+          <FormattedMessage
+            id="plugins.notes.placeholderStyle"
+            defaultMessage="Placeholder Style"
+            description="Label for the note placeholder style setting"
+          />
+        </label>
         <div className="alignment">
           <IconButton
             onClick={() => setData({ ...data, placeholderStyle: "icon" })}

@@ -38,7 +38,7 @@ function runStatus(targetLang, context) {
     process.exit(1);
   }
   const defaultMessages = normalizeExtractedMessages(
-    readJson(extractedMessagesPath, {}),
+    readJson(extractedMessagesPath),
   );
 
   const languageFiles = targetLang
@@ -52,7 +52,7 @@ function runStatus(targetLang, context) {
       continue;
     }
 
-    const existingMessages = readJson(languagePath, {});
+    const existingMessages = readJson(languagePath);
     const whitelistedIds = getWhitelistedIds(languageFile);
     const untranslated = getUntranslatedKeys(
       defaultMessages,

@@ -27,7 +27,7 @@ function formatChangeLine(label, count, ids) {
 
 function mergeLanguage(defaultMessages, existingMessages, whitelistedIds) {
   const merged = {};
-  const changes = { added: [], updated: [], removed: [], trimmed: [] };
+  const changes = { added: [], updated: [], removed: [], needsTrimming: [] };
 
   for (const id of Object.keys(defaultMessages).sort()) {
     const defaultMessage = defaultMessages[id];
@@ -45,7 +45,7 @@ function mergeLanguage(defaultMessages, existingMessages, whitelistedIds) {
     const existingMessage = existingMessages[id];
     if (typeof existingMessage === "string" && existingMessage.length > 0) {
       if (existingMessage !== existingMessage.trim()) {
-        changes.trimmed.push(id);
+        changes.needsTrimming.push(id);
       }
       merged[id] = existingMessage;
     } else {
@@ -69,7 +69,7 @@ function runSync(context) {
   logInfo(context, "⟳ Extracting messages from source...\n");
   extractMessages();
 
-  const extractedRaw = readJson(extractedMessagesPath, {});
+  const extractedRaw = readJson(extractedMessagesPath);
   if (
     !extractedRaw ||
     typeof extractedRaw !== "object" ||
@@ -106,7 +106,8 @@ function runSync(context) {
 
   for (const languageFile of languageFiles) {
     const languagePath = path.join(localesDir, languageFile);
-    const existingMessages = readJson(languagePath, {});
+    const existingMessages = readJson(languagePath);
+    const existingString = fs.readFileSync(languagePath, "utf8");
     if (!validateMessageObject(existingMessages, languageFile)) {
       continue;
     }
@@ -118,12 +119,9 @@ function runSync(context) {
     );
     // Always write if key order or values changed
     const mergedString = JSON.stringify(merged, null, 2) + "\n";
-    const existingString = fs.existsSync(languagePath)
-      ? fs.readFileSync(languagePath, "utf8")
-      : null;
-    if (changes.trimmed.length > 0) {
+    if (changes.needsTrimming.length > 0) {
       console.warn(
-        `  ⚠ ${languageFile}: values with leading/trailing whitespace: ${changes.trimmed.join(", ")}`,
+        `  ⚠ ${languageFile}: values with leading/trailing whitespace: ${changes.needsTrimming.join(", ")}`,
       );
     }
     if (mergedString !== existingString) {

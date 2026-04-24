@@ -134,69 +134,6 @@ export const weekdayFullMessages = defineMessages({
   },
 });
 
-export const monthShortMessages = defineMessages({
-  jan: {
-    id: "time.month.short.jan",
-    defaultMessage: "Jan",
-    description: "January short name for GitHub calendar",
-  },
-  feb: {
-    id: "time.month.short.feb",
-    defaultMessage: "Feb",
-    description: "February short name for GitHub calendar",
-  },
-  mar: {
-    id: "time.month.short.mar",
-    defaultMessage: "Mar",
-    description: "March short name for GitHub calendar",
-  },
-  apr: {
-    id: "time.month.short.apr",
-    defaultMessage: "Apr",
-    description: "April short name for GitHub calendar",
-  },
-  may: {
-    id: "time.month.short.may",
-    defaultMessage: "May",
-    description: "May short name for GitHub calendar",
-  },
-  jun: {
-    id: "time.month.short.jun",
-    defaultMessage: "Jun",
-    description: "June short name for GitHub calendar",
-  },
-  jul: {
-    id: "time.month.short.jul",
-    defaultMessage: "Jul",
-    description: "July short name for GitHub calendar",
-  },
-  aug: {
-    id: "time.month.short.aug",
-    defaultMessage: "Aug",
-    description: "August short name for GitHub calendar",
-  },
-  sep: {
-    id: "time.month.short.sep",
-    defaultMessage: "Sep",
-    description: "September short name for GitHub calendar",
-  },
-  oct: {
-    id: "time.month.short.oct",
-    defaultMessage: "Oct",
-    description: "October short name for GitHub calendar",
-  },
-  nov: {
-    id: "time.month.short.nov",
-    defaultMessage: "Nov",
-    description: "November short name for GitHub calendar",
-  },
-  dec: {
-    id: "time.month.short.dec",
-    defaultMessage: "Dec",
-    description: "December short name for GitHub calendar",
-  },
-});
-
 export const weekdayShortMessages = defineMessages({
   sun: {
     id: "time.weekday.short.sun",

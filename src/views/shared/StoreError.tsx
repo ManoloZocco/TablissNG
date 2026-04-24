@@ -43,7 +43,7 @@ const StoreError: FC<Props> = ({ onClose }) => {
                   <FormattedMessage
                     id="plugins.storageError.guide"
                     defaultMessage="support guide"
-                    description="Link text spanning the support guide description"
+                    description="Link text for the support guide"
                   />
                 </a>
               ),

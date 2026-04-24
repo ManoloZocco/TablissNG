@@ -16,6 +16,16 @@ const messages = defineMessages({
     defaultMessage: "Remove media",
     description: "Title for remove media button",
   },
+  expand: {
+    id: "backgrounds.media.expand",
+    defaultMessage: "Expand",
+    description: "Link text to expand uploaded media previews",
+  },
+  collapse: {
+    id: "backgrounds.media.collapse",
+    defaultMessage: "Collapse",
+    description: "Link text to collapse uploaded media previews",
+  },
 });
 
 const ImageSettings: FC<Props> = ({
@@ -117,7 +127,11 @@ const ImageSettings: FC<Props> = ({
           description="Displays the number of currently uploaded media files"
         />{" "}
         <a className="link" onClick={() => setIsExpanded(!isExpanded)}>
-          {isExpanded ? "Collapse" : "Expand"}
+          {isExpanded ? (
+            <FormattedMessage {...messages.collapse} />
+          ) : (
+            <FormattedMessage {...messages.expand} />
+          )}
         </a>
       </p>
       <div className="grid">

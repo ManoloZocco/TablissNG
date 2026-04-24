@@ -12,8 +12,7 @@ const extractedMessagesPath = path.join(
   "messages.json",
 );
 
-function readJson(filePath, fallback) {
-  if (!fs.existsSync(filePath)) return fallback;
+function readJson(filePath) {
   const raw = fs.readFileSync(filePath, "utf8");
   try {
     return JSON.parse(raw);
@@ -38,18 +37,16 @@ function writeJson(filePath, value, context) {
 
 function writeJsonIfChanged(filePath, value, context) {
   const content = toJsonContent(value);
-  const existing = fs.existsSync(filePath)
-    ? fs.readFileSync(filePath, "utf8")
-    : null;
-  if (existing === content) {
+  if (
+    fs.existsSync(filePath) &&
+    fs.readFileSync(filePath, "utf8") === content
+  ) {
     return false;
   }
 
-  if (context.dryRun) {
-    return true;
+  if (!context.dryRun) {
+    fs.writeFileSync(filePath, content);
   }
-
-  fs.writeFileSync(filePath, content);
   return true;
 }
 
@@ -60,38 +57,10 @@ function sortKeys(obj) {
 }
 
 function normalizeExtractedMessages(extracted) {
-  if (Array.isArray(extracted)) {
-    return Object.fromEntries(
-      extracted.flatMap((message) => {
-        const id = message?.id;
-        if (!id) return [];
-        return [
-          [
-            id,
-            typeof message.defaultMessage === "string"
-              ? message.defaultMessage
-              : "",
-          ],
-        ];
-      }),
-    );
-  }
-
-  if (!extracted || typeof extracted !== "object") {
-    return {};
-  }
-
   const normalized = {};
-
   for (const [id, value] of Object.entries(extracted)) {
-    normalized[id] =
-      typeof value === "string"
-        ? value
-        : typeof value?.defaultMessage === "string"
-          ? value.defaultMessage
-          : "";
+    normalized[id] = value.defaultMessage;
   }
-
   return normalized;
 }
 
@@ -105,7 +74,8 @@ function listLanguageFiles() {
 function getWhitelistedIds(languageFile) {
   const language = languageFile.replace(/\.json$/, "");
   const whitelistPath = path.join(localesDir, `whitelist_${language}.json`);
-  const whitelist = readJson(whitelistPath, []);
+  if (!fs.existsSync(whitelistPath)) return new Set();
+  const whitelist = readJson(whitelistPath);
   return new Set(Array.isArray(whitelist) ? whitelist : []);
 }
 
@@ -123,40 +93,47 @@ function logInfo(context, message) {
 }
 
 function validateMessageObject(obj, filename) {
-  if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
+  if (!obj || Array.isArray(obj)) {
     console.error(`  ✗ ${filename}: invalid JSON, skipping.`);
     return false;
   }
   return true;
 }
 
-function extractMessages() {
-  const formatjsBin = path.join(rootDir, "node_modules", ".bin", "formatjs");
-  if (!fs.existsSync(formatjsBin)) {
+function runFormatjs(args) {
+  return execFileSync("pnpm", ["exec", "formatjs", ...args], {
+    cwd: rootDir,
+    stdio: "inherit",
+  });
+}
+
+function assertFormatjsInstalled() {
+  try {
+    execFileSync("pnpm", ["exec", "formatjs", "--version"], {
+      cwd: rootDir,
+      stdio: "pipe",
+    });
+  } catch {
+    console.error("\n✗ Missing FormatJS CLI dependency: formatjs");
     console.error(
-      "\n✗ Missing FormatJS CLI binary: node_modules/.bin/formatjs",
-    );
-    console.error(
-      "  Run `npm install` from the repository root, then try again.",
+      "  Run `pnpm install` from the repository root, then try again.",
     );
     process.exit(1);
   }
+}
 
-  const args = [
-    "extract",
-    "src/**/*.{ts,tsx}",
-    "--ignore",
-    "**/*.d.ts",
-    "--out-file",
-    "src/locales/extractedMessages/messages.json",
-  ];
+function extractMessages() {
+  assertFormatjsInstalled();
 
   try {
-    execFileSync(formatjsBin, args, {
-      cwd: rootDir,
-      stdio: "inherit",
-      shell: process.platform === "win32",
-    });
+    runFormatjs([
+      "extract",
+      "src/**/*.{ts,tsx}",
+      "--ignore",
+      "**/*.d.ts",
+      "--out-file",
+      "src/locales/extractedMessages/messages.json",
+    ]);
   } catch (err) {
     console.error(`\n✗ Failed to extract messages: ${err.message}`);
     process.exit(1);

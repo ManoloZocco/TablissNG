@@ -27,13 +27,13 @@ function runCreate(langCode, context) {
   }
 
   if (!fs.existsSync(extractedMessagesPath)) {
-    console.log(
+    console.error(
       "No extracted messages found. Run `npm run translations` first.\n",
     );
     process.exit(1);
   }
   const defaultMessages = normalizeExtractedMessages(
-    readJson(extractedMessagesPath, {}),
+    readJson(extractedMessagesPath),
   );
 
   const seeded = {};
