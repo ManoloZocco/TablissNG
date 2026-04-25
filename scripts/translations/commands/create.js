@@ -66,7 +66,7 @@ function runCreate(langCode, context) {
   console.log(`  2. Translate the strings in src/locales/lang/${langFile}`);
   console.log(`  3. Add any kept-English keys to whitelist_${langCode}.json`);
   console.log(
-    `  4. Use 'pnpm run translations:status ${langCode}' to track progress`,
+    `  4. Use 'pnpm run translations status ${langCode}' to track progress`,
   );
 }
 

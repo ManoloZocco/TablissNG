@@ -10,7 +10,7 @@ This guide covers how to add a new language, update existing translations, and m
    `pnpm run translations`
 3. Edit your language file in `src/locales/lang`.
 4. Verify status:
-   `pnpm run translations:status <lang>`
+   `pnpm run translations status <lang>`
 5. Run app locally to test:
    `pnpm run dev`
 
@@ -26,38 +26,38 @@ This guide covers how to add a new language, update existing translations, and m
 - Sync/extract all messages:
   `pnpm run translations`
 - Show status for all locales:
-  `pnpm run translations:status`
+  `pnpm run translations status`
 - Show status for one locale:
-  `pnpm run translations:status fr`
+  `pnpm run translations status fr`
 - Compile stripped/minified locale artifacts for production:
-  `pnpm run translations:compile`
+  `pnpm run translations compile`
 - Create a new locale file:
-  `pnpm run translations:create de-AT`
+  `pnpm run translations create de-AT`
 - Migrate renamed keys (all locales):
-  `pnpm run translations:migrate --map old.id=new.id`
+  `pnpm run translations migrate --map old.id=new.id`
 - Migrate renamed keys (one locale):
-  `pnpm run translations:migrate es --map old.id=new.id`
+  `pnpm run translations migrate es --map old.id=new.id`
 
 You can pass multiple migration mappings in one command:
 
-`pnpm run translations:migrate --map old.one=new.one --map old.two=new.two`
+`pnpm run translations migrate --map old.one=new.one --map old.two=new.two`
 
 ## Adding a New Language
 
 1. Create locale file from extracted defaults:
-   `pnpm run translations:create <lang>`
+   `pnpm run translations create <lang>`
 2. Add locale metadata in `src/locales/registry.ts`.
 3. Ensure locale aliases are correct in `src/locales/registry.ts` if needed (example: `zh` -> `zh-CN`).
 4. Translate values in `src/locales/lang/<lang>.json`.
 5. Run `pnpm run translations` to normalize and sort keys.
-6. Check progress with `pnpm run translations:status <lang>`.
+6. Check progress with `pnpm run translations status <lang>`.
 
 ## Updating Existing Translations
 
 1. Run `pnpm run translations`.
 2. Edit target locale files in `src/locales/lang`.
 3. Re-run `pnpm run translations`.
-4. Verify with `pnpm run translations:status <lang>`.
+4. Verify with `pnpm run translations status <lang>`.
 
 ## Migrating Renamed Keys
 
@@ -65,7 +65,7 @@ When IDs are renamed in code, preserve existing translated values with the migra
 
 Example:
 
-`pnpm run translations:migrate --map plugins.github.month.jan=time.month.short.jan`
+`pnpm run translations migrate --map plugins.github.month.jan=time.month.short.jan`
 
 Then run:
 
@@ -81,4 +81,4 @@ Example:
 
 If `widgets` is in `whitelist_fr.json`, French keeps the English word "widgets".
 
-Production builds automatically run `pnpm run translations:compile` and load compiled locale artifacts.
+Production builds automatically run `pnpm run translations compile` and load compiled locale artifacts.

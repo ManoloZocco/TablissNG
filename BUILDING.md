@@ -96,10 +96,10 @@ All production builds are located in the `dist/` directory, organized by platfor
 - `pnpm run prettier:check`: Check if the codebase follows Prettier formatting rules.
 - `pnpm run typecheck`: Run TypeScript type checking.
 - `pnpm run translations`: Extract and sync translation files.
-- `pnpm run translations:status`: Show translation status (`pnpm run translations:status fr`).
-- `pnpm run translations:create`: Create a new locale file (`pnpm run translations:create de-AT`) and add the locale to `src/locales/registry.ts`.
-- `pnpm run translations:compile`: Build production locale artifacts in `src/locales/lang.compiled`.
-- `pnpm run translations:migrate`: Migrate renamed translation keys (`pnpm run translations:migrate --map old.id=new.id`).
+- `pnpm run translations status`: Show translation status (`pnpm run translations status fr`).
+- `pnpm run translations create`: Create a new locale file (`pnpm run translations create de-AT`) and add the locale to `src/locales/registry.ts`.
+- `pnpm run translations compile`: Build production locale artifacts in `src/locales/lang.compiled`.
+- `pnpm run translations migrate`: Migrate renamed translation keys (`pnpm run translations migrate --map old.id=new.id`).
 - `pnpm run sign:firefox`: Manually sign the Firefox extension (requires credentials, mostly for gh workflows).
 - `pnpm run deps:check`: Check for outdated dependencies using `npm-check`.
 - `pnpm run deps:update`: Interactively update dependencies.
