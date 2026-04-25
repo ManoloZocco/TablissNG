@@ -1,8 +1,9 @@
-import React from "react";
-import { FormattedMessage, defineMessages, useIntl } from "react-intl";
+import type { FC } from "react";
+import { defineMessages, FormattedMessage, useIntl } from "react-intl";
+
 import { WidgetDisplay as WidgetDisplayType } from "../../db/state";
-import PositionInput from "./PositionInput";
 import { pluginMessages } from "../../locales/messages";
+import PositionInput from "./PositionInput";
 
 type Props = {
   display: WidgetDisplayType;
@@ -22,7 +23,7 @@ const messages = defineMessages({
   },
 });
 
-const WidgetDisplay: React.FC<Props> = ({ display, onChange }) => {
+const WidgetDisplay: FC<Props> = ({ display, onChange }) => {
   const intl = useIntl();
 
   return (
@@ -110,7 +111,7 @@ const WidgetDisplay: React.FC<Props> = ({ display, onChange }) => {
         <br />
         <input
           type="range"
-          value={display.scale}
+          value={display.scale ?? 1}
           list="scale-markers"
           min="0"
           max="3"
@@ -118,10 +119,8 @@ const WidgetDisplay: React.FC<Props> = ({ display, onChange }) => {
           onChange={(event) => onChange({ scale: Number(event.target.value) })}
         />
         <datalist id="scale-markers">
-          {/* <option value="0.5" label="-0.5" /> */}
-          <option value="1" label="Default" />
-          <option value="2" label="Double" />
-          {/* <option value="1.5" label="+0.5" /> */}
+          <option value="1" />
+          <option value="2" />
         </datalist>
       </label>
 

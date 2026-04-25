@@ -30,11 +30,9 @@ export const trelloAuthFlow = async (): Promise<TrelloSession | null> => {
   }
 
   // Attempt to clear previous stale session
-  let staleSession: TrelloSession | null = null;
-
   try {
     const obj = await browser.storage.local.get(SESSION_NAME);
-    staleSession =
+    const staleSession =
       typeof obj[SESSION_NAME] === "object"
         ? (obj[SESSION_NAME] as TrelloSession)
         : null;

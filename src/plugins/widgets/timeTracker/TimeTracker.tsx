@@ -1,11 +1,13 @@
-import React, { FC, useState, useEffect } from "react";
-import { FormattedRelativeTime, FormattedMessage } from "react-intl";
+import "./TimeTracker.sass";
+
+import { toZonedTime } from "date-fns-tz";
+import { FC, useEffect, useState } from "react";
+import { FormattedMessage, FormattedRelativeTime } from "react-intl";
+
 import { useTime } from "../../../hooks";
 import { selectUnit } from "../../../utils";
-import { Props, defaultData } from "./types";
 import { messages } from "./messages";
-import { toZonedTime } from "date-fns-tz";
-import "./TimeTracker.sass";
+import { defaultData, Props } from "./types";
 
 const TimeTracker: FC<Props> = ({ data = defaultData }) => {
   let time = useTime(data.timeZone ? "absolute" : "zoned");
@@ -112,6 +114,7 @@ const TimeTracker: FC<Props> = ({ data = defaultData }) => {
               <FormattedMessage
                 id="plugins.timeTracker.was"
                 defaultMessage="was"
+                description="Text indicating the tracked event occurred in the past"
               />{" "}
               <span className={data.italicizeTime ? "italic-time" : ""}>
                 <FormattedRelativeTime value={value} unit={unit} />
@@ -122,6 +125,7 @@ const TimeTracker: FC<Props> = ({ data = defaultData }) => {
               <FormattedMessage
                 id="plugins.timeTracker.isIn"
                 defaultMessage="is"
+                description="Text indicating the tracked event will occur in the future"
               />{" "}
               <span className={data.italicizeTime ? "italic-time" : ""}>
                 <FormattedRelativeTime value={value} unit={unit} />

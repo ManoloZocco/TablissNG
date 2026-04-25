@@ -1,12 +1,13 @@
-import React, { FC, useEffect } from "react";
-import { Props, List, defaultCache, TrelloSession } from "./types";
 import "./Trello.sass";
 
+import { FC, useEffect } from "react";
+import { FormattedMessage } from "react-intl";
+
+import useAuth from "../../../hooks/useAuth";
+import { trelloAuthStore } from "./stores/trelloAuthStore";
+import { defaultCache, List, Props, TrelloSession } from "./types";
 import DisplayList from "./ui/DisplayList/DisplayList";
 import { getItems } from "./utils/api";
-import { trelloAuthStore } from "./stores/trelloAuthStore";
-import useAuth from "../../../hooks/useAuth";
-import { FormattedMessage } from "react-intl";
 
 const Trello: FC<Props> = ({ cache = defaultCache, setCache }) => {
   const { authStatus, getSession } = useAuth<TrelloSession>(
@@ -84,14 +85,14 @@ const Trello: FC<Props> = ({ cache = defaultCache, setCache }) => {
       {authStatus !== "authenticated" ? (
         <FormattedMessage
           id="plugins.trello.unauthenticatedMessage"
-          defaultMessage={"Sign into Trello to use me"}
-          description={"Sign into Trello to use me"}
+          defaultMessage="Sign into Trello to use me"
+          description="Sign into Trello to use me"
         />
       ) : !cache.order || (!!cache && cache.order.length === 0) ? (
         <FormattedMessage
           id="plugins.trello.noListsMessage"
-          defaultMessage={"Add some lists to view"}
-          description={"Add some lists to view"}
+          defaultMessage="Add some lists to view"
+          description="Add some lists to view"
         />
       ) : (
         <div className="display-list-container">

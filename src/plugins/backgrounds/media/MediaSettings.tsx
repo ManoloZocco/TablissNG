@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import { FormattedMessage, useIntl, defineMessages } from "react-intl";
+import "./MediaSettings.sass";
+
+import { useState } from "react";
+import { type FC } from "react";
+import { defineMessages, FormattedMessage, useIntl } from "react-intl";
+
 import { useObjectUrls } from "../../../hooks";
+import { backgroundMessages } from "../../../locales/messages";
 import { IconButton, RemoveIcon } from "../../../views/shared";
 import BaseSettings from "../base/BaseSettings";
-import "./MediaSettings.sass";
 import { defaultCache, defaultData, Props } from "./types";
 
 const messages = defineMessages({
@@ -12,9 +16,19 @@ const messages = defineMessages({
     defaultMessage: "Remove media",
     description: "Title for remove media button",
   },
+  expand: {
+    id: "backgrounds.media.expand",
+    defaultMessage: "Expand",
+    description: "Link text to expand uploaded media previews",
+  },
+  collapse: {
+    id: "backgrounds.media.collapse",
+    defaultMessage: "Collapse",
+    description: "Link text to collapse uploaded media previews",
+  },
 });
 
-const ImageSettings: React.FC<Props> = ({
+const ImageSettings: FC<Props> = ({
   cache = defaultCache,
   setCache,
   data = defaultData,
@@ -60,10 +74,41 @@ const ImageSettings: React.FC<Props> = ({
           <FormattedMessage
             id="backgrounds.media.showNewMedia"
             defaultMessage="Show new media"
+            description="Label for the setting that controls how often new media is shown"
           />
         }
       />
-
+      <label>
+        <FormattedMessage
+          id="backgrounds.media.sortOrder"
+          defaultMessage="Sort order"
+          description="Label for selecting media display order"
+        />
+        <select
+          value={data.sortOrder}
+          onChange={(event) =>
+            setData({
+              ...data,
+              sortOrder: event.target.value as "sequence" | "random",
+            })
+          }
+        >
+          <option value="sequence">
+            <FormattedMessage
+              id="backgrounds.media.sortOrderSequence"
+              defaultMessage="In sequence"
+              description="Option label to show uploaded media in original order"
+            />
+          </option>
+          <option value="random">
+            <FormattedMessage
+              id="backgrounds.media.sortOrderRandom"
+              defaultMessage="Random"
+              description="Option label to show uploaded media in random order"
+            />
+          </option>
+        </select>
+      </label>
       <label>
         <input
           accept=".mp4, .webm, .ogg, image/*"
@@ -74,18 +119,21 @@ const ImageSettings: React.FC<Props> = ({
           type="file"
         />
       </label>
-
       <p className="info media-count">
         <FormattedMessage
           id="backgrounds.media.uploadCount"
           defaultMessage="{count} media uploaded."
           values={{ count: (cache.items || []).length }}
+          description="Displays the number of currently uploaded media files"
         />{" "}
         <a className="link" onClick={() => setIsExpanded(!isExpanded)}>
-          {isExpanded ? "Collapse" : "Expand"}
+          {isExpanded ? (
+            <FormattedMessage {...messages.collapse} />
+          ) : (
+            <FormattedMessage {...messages.expand} />
+          )}
         </a>
       </p>
-
       <div className="grid">
         {isExpanded &&
           urls &&
@@ -111,22 +159,32 @@ const ImageSettings: React.FC<Props> = ({
             );
           })}
       </div>
-
       {largeMedia && (
         <p className="info" style={{ marginTop: "5px" }}>
           <FormattedMessage
             id="backgrounds.media.performanceWarning"
             defaultMessage="Large media may affect performance."
+            description="Warning text indicating that large media files may slow down the extension"
           />
         </p>
       )}
-
       <p className="info">
         <FormattedMessage
           id="backgrounds.media.syncWarning"
           defaultMessage="Media does not sync between devices."
+          description="Warning text indicating that custom media files are not synced using browser sync"
         />
       </p>
+      <label>
+        <input
+          type="checkbox"
+          checked={data.showControls}
+          onChange={(event) =>
+            setData({ ...data, showControls: event.target.checked })
+          }
+        />{" "}
+        <FormattedMessage {...backgroundMessages.showControls} />
+      </label>
     </div>
   );
 };

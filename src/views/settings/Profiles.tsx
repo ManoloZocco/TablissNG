@@ -1,16 +1,18 @@
+import "./Profiles.sass";
+
+import { Icon } from "@iconify/react";
 import React, { useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
-import { Icon } from "@iconify/react";
-import { db } from "../../db/state";
-import { useValue } from "../../lib/db/react";
+
 import {
   createProfile,
-  switchProfile,
-  renameProfile,
   deleteProfile,
   duplicateProfile,
+  renameProfile,
+  switchProfile,
 } from "../../db/action";
-import "./Profiles.sass";
+import { db } from "../../db/state";
+import { useValue } from "../../lib/db/react";
 
 const Profiles: React.FC = () => {
   const intl = useIntl();
@@ -97,6 +99,7 @@ const Profiles: React.FC = () => {
                         <FormattedMessage
                           id="settings.profiles.active"
                           defaultMessage="Active"
+                          description="Text indicating the active profile"
                         />
                         )
                       </span>
@@ -121,6 +124,8 @@ const Profiles: React.FC = () => {
                           title={intl.formatMessage({
                             id: "settings.profiles.switch",
                             defaultMessage: "Switch",
+                            description:
+                              "Title for button swithcing to a profile",
                           })}
                         >
                           <Icon icon="feather:play" />
@@ -132,6 +137,7 @@ const Profiles: React.FC = () => {
                         title={intl.formatMessage({
                           id: "rename",
                           defaultMessage: "Rename",
+                          description: "Title for button renaming a profile",
                         })}
                       >
                         <Icon icon="feather:edit-2" />
@@ -142,6 +148,7 @@ const Profiles: React.FC = () => {
                         title={intl.formatMessage({
                           id: "duplicate",
                           defaultMessage: "Duplicate",
+                          description: "Title for button duplicating a profile",
                         })}
                       >
                         <Icon icon="feather:copy" />
@@ -153,6 +160,7 @@ const Profiles: React.FC = () => {
                           title={intl.formatMessage({
                             id: "delete",
                             defaultMessage: "Delete",
+                            description: "Title for button deleting a profile",
                           })}
                         >
                           <Icon icon="feather:trash-2" />
@@ -174,13 +182,18 @@ const Profiles: React.FC = () => {
             placeholder={intl.formatMessage({
               id: "settings.profiles.namePlaceholder",
               defaultMessage: "Profile Name",
+              description: "Profile name text for profile creation",
             })}
             value={newProfileName}
             onChange={(e) => setNewProfileName(e.target.value)}
             autoFocus
           />
           <button type="submit" className="button button--primary">
-            <FormattedMessage id="create" defaultMessage="Create" />
+            <FormattedMessage
+              id="create"
+              defaultMessage="Create"
+              description="Button for creating a new profile"
+            />
           </button>
           <button
             type="button"
@@ -203,6 +216,7 @@ const Profiles: React.FC = () => {
           <FormattedMessage
             id="settings.profiles.new"
             defaultMessage="New Profile"
+            description="Text for button for creating a new profile"
           />
         </button>
       )}

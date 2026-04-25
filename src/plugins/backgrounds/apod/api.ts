@@ -1,7 +1,8 @@
-import { API } from "../../types";
-import { Image, Data } from "./types";
 import { format } from "date-fns";
+
 import { parseLocalDate } from "../../../utils";
+import { API } from "../../types";
+import { Data, Image } from "./types";
 
 type Config = Data;
 
@@ -32,10 +33,11 @@ export async function getPicture(
   }
 
   loader.push();
-  const res = await fetch(`${url}?${params}`);
-  const json = await res.json();
-
-  loader.pop();
-
-  return json;
+  try {
+    const res = await fetch(`${url}?${params}`);
+    const json = await res.json();
+    return json;
+  } finally {
+    loader.pop();
+  }
 }

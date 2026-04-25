@@ -1,7 +1,8 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { FormattedMessage } from "react-intl";
-import { Props, defaultData } from "./types";
+
 import { pluginMessages } from "../../../locales/messages";
+import { defaultData, Props } from "./types";
 
 const JsSettings: FC<Props> = ({ data = defaultData, setData }) => {
   const [input, setInput] = useState(data.input);
@@ -30,10 +31,7 @@ const JsSettings: FC<Props> = ({ data = defaultData, setData }) => {
       <p className="info">
         <FormattedMessage
           id="plugins.js.Warning"
-          defaultMessage="Warning: this functionality is intended for advanced users. Custom
-          scripts may break at any time. The snippet will run once after the
-          dashboard has loaded. Be careful of persisting event listeners when
-          editing the snippet."
+          defaultMessage="Warning: this functionality is intended for advanced users. Custom scripts may break at any time. The snippet will run once after the dashboard has loaded. Be careful of persisting event listeners when editing the snippet."
           description="JavaScript warning title"
         />
       </p>

@@ -38,10 +38,10 @@ Use these methods if you want the absolute latest features (Nightly) or need to 
 For the latest experimental features, you can install the **Signed Nightly** build. This version is signed by Mozilla and will work on standard Firefox releases.
 
 <div style={{ marginBottom: "1rem" }}>
-  <a href="https://github.com/BookCatKid/TablissNG/releases/download/nightly-auto/tablissng-1.6.3.0.xpi" className="button button--primary button--sm">Install Signed Nightly</a>
+  <a href="https://github.com/BookCatKid/TablissNG/releases/download/nightly-auto/tablissng-1.6.5.0.xpi" className="button button--primary button--sm">Install Signed Nightly</a>
 </div>
 
-_(Current version: `v1.6.3.0`)_
+_(Current version: `v1.6.5.0`)_
 :::
 
 #### From a `.xpi`

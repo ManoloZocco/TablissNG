@@ -1,15 +1,39 @@
-import React from "react";
-import { FormattedMessage, useIntl } from "react-intl";
+import type { FC } from "react";
+import { defineMessages, FormattedMessage, useIntl } from "react-intl";
+
 import { db, FaviconMode } from "../../db/state";
-import { useKey } from "../../lib/db/react";
-import TimeZoneInput from "../shared/timeZone/TimeZoneInput";
 import { useSystemTheme } from "../../hooks";
+import { useKey } from "../../lib/db/react";
+import { localeOptions } from "../../locales/registry";
 import { Icon, IconButton } from "../shared";
+import TimeZoneInput from "../shared/timeZone/TimeZoneInput";
+
+const messages = defineMessages({
+  faviconErrorSize: {
+    id: "settings.favicon.error.size",
+    defaultMessage: "Image must be smaller than 8KB",
+    description: "Error message when uploaded favicon is too large",
+  },
+  faviconErrorRead: {
+    id: "settings.favicon.error.read",
+    defaultMessage: "Failed to read file. Please try again.",
+    description: "Error message when the favicon file cannot be read",
+  },
+  faviconPlaceholder: {
+    id: "settings.favicon.placeholder",
+    defaultMessage: "https://example.com/favicon.ico",
+    description: "Placeholder for the custom favicon URL input",
+  },
+});
 
 const positions = [
   {
     value: "topLeft",
     icon: "arrow-up-left",
+  },
+  {
+    value: "topCentre",
+    icon: "arrow-up",
   },
   {
     value: "topRight",
@@ -20,12 +44,16 @@ const positions = [
     icon: "arrow-down-left",
   },
   {
+    value: "bottomCentre",
+    icon: "arrow-down",
+  },
+  {
     value: "bottomRight",
     icon: "arrow-down-right",
   },
 ] as const;
 
-const System: React.FC = () => {
+const System: FC = () => {
   const intl = useIntl();
   const [locale, setLocale] = useKey(db, "locale");
   const [timeZone, setTimeZone] = useKey(db, "timeZone");
@@ -90,147 +118,15 @@ const System: React.FC = () => {
           value={locale}
           onChange={(event) => setLocale(event.target.value)}
         >
-          <option value="ar" title="Arabic">
-            العربية
-          </option>
-          <option value="be" title="Belorussian">
-            Беларуская
-          </option>
-          <option value="ca-ES" title="Catalan">
-            Català
-          </option>
-          <option value="cs" title="Czech">
-            Čeština
-          </option>
-          <option value="de" title="German">
-            Deutsch
-          </option>
-          <option value="el" title="Greek">
-            Ελληνικά
-          </option>
-          <option value="en-AU" title="English (Australian)">
-            English (AU)
-          </option>
-          <option value="en-CA" title="English (Canadian)">
-            English (CA)
-          </option>
-          <option value="en-GB" title="English (British)">
-            English (GB)
-          </option>
-          <option value="en" title="English (American)">
-            English (US)
-          </option>
-          <option value="es" title="Spanish">
-            Español
-          </option>
-          <option value="fa" title="Persian">
-            پارسی
-          </option>
-          <option value="fr" title="French">
-            Français
-          </option>
-          <option value="he" title="Hebrew">
-            עברית
-          </option>
-          <option value="ga" title="Gaeilge">
-            Gaeilge
-          </option>
-          <option value="gd" title="Scottish Gaelic">
-            Gàidhlig
-          </option>
-          <option value="gl" title="Galician">
-            Galego
-          </option>
-          <option value="gu" title="Gujarati">
-            ગુજરાતી
-          </option>
-          <option value="hi" title="Hindi">
-            हिन्दी
-          </option>
-          <option value="hu" title="Hungarian">
-            Magyar
-          </option>
-          <option value="id" title="Indonesian">
-            Indonesian
-          </option>
-          <option value="it" title="Italian">
-            Italiano
-          </option>
-          <option value="ja" title="Japanese">
-            日本語
-          </option>
-          <option value="ko" title="Korean">
-            한국어
-          </option>
-          <option value="kp" title="North Korean">
-            조선말
-          </option>
-          <option value="lb" title="Luxembourgish">
-            Lëtzebuergesch
-          </option>
-          <option value="lt" title="Lithuanian">
-            Lietuvių k.
-          </option>
-          <option value="ne" title="Nepali">
-            Nepali
-          </option>
-          <option value="nl" title="Dutch">
-            Nederlands
-          </option>
-          <option value="no" title="Norwegian">
-            Norsk
-          </option>
-          <option value="pl" title="Polish">
-            Polski
-          </option>
-          <option value="pt-BR" title="Portuguese (Brazil)">
-            Português do Brasil
-          </option>
-          <option value="pt" title="Portuguese (Portugal)">
-            Português de Portugal
-          </option>
-          <option value="ro" title="Romanian">
-            Română
-          </option>
-          <option value="ru" title="Russian">
-            Русский
-          </option>
-          <option value="sk" title="Slovak">
-            Slovenčina
-          </option>
-          <option value="sq" title="Albanian">
-            Shqip
-          </option>
-          <option value="sr" title="Serbian">
-            Српски
-          </option>
-          <option value="fi" title="Finnish">
-            Suomi
-          </option>
-          <option value="sv" title="Swedish">
-            Svenska
-          </option>
-          <option value="ta" title="Tamil">
-            தமிழ்
-          </option>
-          <option value="th" title="Thai">
-            ไทย
-          </option>
-          <option value="tr" title="Turkish">
-            Türkçe
-          </option>
-          <option value="vi" title="Vietnamese">
-            Tiếng Việt
-          </option>
-          <option value="zh-CN" title="Simplified Chinese (China)">
-            中文（中国）
-          </option>
-          <option value="zh-TW" title="Traditional Chinese (Taiwan)">
-            中文（台灣）
-          </option>
-          <option value="uk" title="Ukrainian">
-            Українська
-          </option>
+          {localeOptions.map((localeOption) => (
+            <option
+              key={localeOption.code}
+              value={localeOption.code}
+              title={localeOption.title}
+            >
+              {localeOption.label}
+            </option>
+          ))}
         </select>
       </label>
 
@@ -329,42 +225,49 @@ const System: React.FC = () => {
               <FormattedMessage
                 id="settings.favicon.mode.default"
                 defaultMessage="Default"
+                description="Dropdown option to use the default extension favicon"
               />
             </option>
             <option value="size32">
               <FormattedMessage
                 id="settings.favicon.mode.size32"
                 defaultMessage="32x32 Icon"
+                description="Dropdown option to use a 32x32 icon as the favicon"
               />
             </option>
             <option value="size48">
               <FormattedMessage
                 id="settings.favicon.mode.size48"
                 defaultMessage="48x48 Icon"
+                description="Dropdown option to use a 48x48 icon as the favicon"
               />
             </option>
             <option value="size96">
               <FormattedMessage
                 id="settings.favicon.mode.size96"
                 defaultMessage="96x96 Icon"
+                description="Dropdown option to use a 96x96 icon as the favicon"
               />
             </option>
             <option value="size128">
               <FormattedMessage
                 id="settings.favicon.mode.size128"
                 defaultMessage="128x128 Icon"
+                description="Dropdown option to use a 128x128 icon as the favicon"
               />
             </option>
             <option value="custom">
               <FormattedMessage
                 id="settings.favicon.mode.custom"
                 defaultMessage="File Upload..."
+                description="Dropdown option to upload a custom favicon file"
               />
             </option>
             <option value="url">
               <FormattedMessage
                 id="settings.favicon.mode.url"
                 defaultMessage="Custom URL..."
+                description="Dropdown option to use a custom URL for the favicon"
               />
             </option>
           </select>
@@ -372,7 +275,7 @@ const System: React.FC = () => {
           {favicon.mode === "url" && (
             <input
               type="text"
-              placeholder="https://example.com/favicon.ico"
+              placeholder={intl.formatMessage(messages.faviconPlaceholder)}
               value={favicon.url || ""}
               onChange={(e) => setFavicon({ ...favicon, url: e.target.value })}
             />
@@ -389,12 +292,7 @@ const System: React.FC = () => {
                   const file = e.target.files?.[0];
                   if (file) {
                     if (file.size > 8192) {
-                      alert(
-                        intl.formatMessage({
-                          id: "settings.favicon.error.size",
-                          defaultMessage: "Image must be smaller than 8KB",
-                        }),
-                      );
+                      alert(intl.formatMessage(messages.faviconErrorSize));
                       return;
                     }
                     const reader = new FileReader();
@@ -403,13 +301,7 @@ const System: React.FC = () => {
                       setFavicon({ ...favicon, data: result });
                     };
                     reader.onerror = () => {
-                      alert(
-                        intl.formatMessage({
-                          id: "settings.favicon.error.read",
-                          defaultMessage:
-                            "Failed to read file. Please try again.",
-                        }),
-                      );
+                      alert(intl.formatMessage(messages.faviconErrorRead));
                     };
                     reader.readAsDataURL(file);
                   }
@@ -446,7 +338,7 @@ const System: React.FC = () => {
           />
         </label>
         <div className="PositionInput">
-          <div className="u-grid-2x2-compact">
+          <div className="u-grid-3x2-compact">
             {positions.map((position) => (
               <IconButton
                 key={position.value}
@@ -478,8 +370,8 @@ const System: React.FC = () => {
         <span>
           <FormattedMessage
             id="settings.hideIcon"
-            defaultMessage="Hide Settings Icon"
-            description="Hide settings icon toggle label"
+            defaultMessage="Hide Settings Toolbar"
+            description="Hide settings toolbar toggle label"
           />
         </span>
         <input

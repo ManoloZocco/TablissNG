@@ -6,6 +6,114 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 I also attempt to follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 
+## [Unreleased]
+
+### Translations
+
+- Added toki pona translation.
+
+## [1.6.6] - 4/4/2026 | LeetCode widget, APOD improvements, and important bugfixes
+
+Adds a new LeetCode calendar widget, APOD video support and cache improvements, a backgrounds controls visibility toggle, configurable quote refresh timeout, and a critical quick link upload bugfix. Also includes translation updates and A LOT OF INTERNAL REFACTORS.
+
+### Added
+
+- feat(leetcode): add Leetcode calendar widget (#121). [a9e6eed3](https://github.com/BookCatKid/TablissNG/commit/a9e6eed3)
+
+- feat(apod): add video support and background handling. [62d202f5](https://github.com/BookCatKid/TablissNG/commit/62d202f5)
+
+- feat(apod): add cache freshness check for data retrieval. [dbf0f0ef](https://github.com/BookCatKid/TablissNG/commit/dbf0f0ef)
+
+- feat(backgrounds): add controls visibility toggle setting. [1d00b432](https://github.com/BookCatKid/TablissNG/commit/1d00b432)
+
+- feat(quote): add configurable timeout for quote refresh. [cfebaf2e](https://github.com/BookCatKid/TablissNG/commit/cfebaf2e)
+
+### Changed
+
+- feat(cache): change image caching strategy to NetworkFirst. [cfacda40](https://github.com/BookCatKid/TablissNG/commit/cfacda40)
+
+- style: add inline-flex display to summary and link elements to correctly center them vertically. [21fcf026](https://github.com/BookCatKid/TablissNG/commit/21fcf026)
+
+### Fixed
+
+- fix: critical issue with quick link upload bug. [fdefc435](https://github.com/BookCatKid/TablissNG/commit/fdefc435)
+
+### Translations
+
+- Update Spanish and Catalan translations (#120). [ce357784](https://github.com/BookCatKid/TablissNG/commit/ce357784)
+
+- Update fr.json (#131). [9ec671e1](https://github.com/BookCatKid/TablissNG/commit/9ec671e1)
+
+### Internal
+
+- refactor(tsconfig): modernization updates and cool stuff. [f5a7e3f2](https://github.com/BookCatKid/TablissNG/commit/f5a7e3f2)
+
+- refactor(plugins): consolidate unknown widget configuration and remove unused exports. [62cf0a07](https://github.com/BookCatKid/TablissNG/commit/62cf0a07)
+
+- chore: react-codemod auto fix react imports. [cf362ef2](https://github.com/BookCatKid/TablissNG/commit/cf362ef2)
+
+- fix(hooks): fix lint by handling nullish callback in useKeyPress hook. [d26742f3](https://github.com/BookCatKid/TablissNG/commit/d26742f3)
+
+- fix(ts): clean up unused variables and improve checkbox handlers. [fb776682](https://github.com/BookCatKid/TablissNG/commit/fb776682)
+
+- fix: eslint trello auth lint error. [56150650](https://github.com/BookCatKid/TablissNG/commit/56150650)
+
+- deps go brrrrrrrr. [ef9824aa](https://github.com/BookCatKid/TablissNG/commit/ef9824aa)
+
+- chore(deps): yay more dep updates. [638fb288](https://github.com/BookCatKid/TablissNG/commit/638fb288)
+
+- chore: pin serialize-javascript to ^7.0.4. [175a5fcc](https://github.com/BookCatKid/TablissNG/commit/175a5fcc)
+
+- feat(docs): add google site verification metadata. [57cf7578](https://github.com/BookCatKid/TablissNG/commit/57cf7578)
+
+- refactor: convert React namespace imports to named imports across codebase. [a9921099](https://github.com/BookCatKid/TablissNG/commit/a9921099)
+
+- style: sort imports across codebase. [4835fd8b](https://github.com/BookCatKid/TablissNG/commit/4835fd8b)
+
+- chore: docs deps override again. [e0a1162d](https://github.com/BookCatKid/TablissNG/commit/e0a1162d)
+
+## [1.6.5] - 2/20/2026 | Error logging, new widgets, and quality-of-life improvements
+
+A solid release featuring a comprehensive error logging system, a new random color palette widget, drag-and-drop todo reordering, weather auto-update, and several UI improvements and fixes.
+
+### Added
+
+- feat: improve error logging and user feedback with comprehensive error log management, global error capture, and sharing functionality. [41d25f9a](https://github.com/BookCatKid/TablissNG/commit/41d25f9a)
+
+- feat(palette): add random color palette widget. [82fb9df6](https://github.com/BookCatKid/TablissNG/commit/82fb9df6)
+
+- feat(todo): add drag-and-drop reordering for todo items. [f19e15e1](https://github.com/BookCatKid/TablissNG/commit/f19e15e1)
+
+- feat(weather): add auto-update location feature. [52476cfa](https://github.com/BookCatKid/TablissNG/commit/52476cfa)
+
+- feat(search): add special URL handling. [5e14bcda](https://github.com/BookCatKid/TablissNG/commit/5e14bcda)
+
+- feat: add scroll-to-top button in Settings panel. [3fd010e3](https://github.com/BookCatKid/TablissNG/commit/3fd010e3)
+
+- feat(github): add tooltips to calendar widget. [f70eeb1b](https://github.com/BookCatKid/TablissNG/commit/f70eeb1b)
+
+### Changed
+
+- feat(ip-info): more robust fallbacking and parsing. [70d071da](https://github.com/BookCatKid/TablissNG/commit/70d071da)
+
+- Updated ES & IT files (#114). [762e4f48](https://github.com/BookCatKid/TablissNG/commit/762e4f48)
+
+- Update Vietnamese (vi) translation (#110). [9d6cb68e](https://github.com/BookCatKid/TablissNG/commit/9d6cb68e)
+
+### Fixed
+
+- fix: less gimmicky scroll to top button. [decec927](https://github.com/BookCatKid/TablissNG/commit/decec927)
+
+- fix(search): missing/broken translation. [f54a423a](https://github.com/BookCatKid/TablissNG/commit/f54a423a)
+
+- fix: remove whole background on chromium dev. [fb9dbb52](https://github.com/BookCatKid/TablissNG/commit/fb9dbb52)
+
+### Chore / Cleanup
+
+- chore: run translations. [bed18d2e](https://github.com/BookCatKid/TablissNG/commit/bed18d2e)
+
+- ci: update actions to latest versions in workflows. [3add9da4](https://github.com/BookCatKid/TablissNG/commit/3add9da4)
+
 ## [1.6.4] - 2/13/2026 | Theming, search customization, tally counter, and online documentation
 
 A feature-packed release with centralized theming via CSS variables, search widget customization, a new tally counter widget, and full online documentation! Additionally, the since and countdown widgets are now deprecated in favor of TimeTracker, and a lot of development work has been done under the hood to prepare for future updates and make contributions easier.

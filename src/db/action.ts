@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { nanoid } from "nanoid";
+
 import { DB } from "../lib";
 import migrateFrom2 from "./migrations/migrate2";
 import { selectWidgets } from "./select";
@@ -7,9 +8,9 @@ import {
   BackgroundDisplay,
   cache,
   db,
-  WidgetDisplay,
-  ProfileState,
   initData,
+  ProfileState,
+  WidgetDisplay,
 } from "./state";
 
 export const createId = (): string => nanoid(12);

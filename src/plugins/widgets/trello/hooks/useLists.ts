@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Data, Cache, List, FetchJob, TrelloSession } from "../types";
+
+import useAuth from "../../../../hooks/useAuth";
+import { trelloAuthStore } from "../stores/trelloAuthStore";
+import { Cache, Data, FetchJob, List, TrelloSession } from "../types";
+import { createFetchJob } from "../types";
 import { getLists } from "../utils/api";
 import { applyPreferences } from "../utils/preferences";
-import { createFetchJob } from "../types";
-import { trelloAuthStore } from "../stores/trelloAuthStore";
-import useAuth from "../../../../hooks/useAuth";
 
 export default function useLists(
   data: Data,

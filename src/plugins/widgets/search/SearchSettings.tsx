@@ -1,8 +1,9 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
+
 import { engines } from "./engines";
-import { Props, defaultData, SEARCH_ENGINE_CUSTOM, SearchStyle } from "./types";
 import { messages } from "./Search";
+import { defaultData, Props, SEARCH_ENGINE_CUSTOM, SearchStyle } from "./types";
 
 const SearchSettings: FC<Props> = ({ data = defaultData, setData }) => {
   const intl = useIntl();
@@ -68,7 +69,7 @@ const SearchSettings: FC<Props> = ({ data = defaultData, setData }) => {
           <p className="info">
             <FormattedMessage
               id="plugins.search.customWarning"
-              defaultMessage="Warning: This functionality is intended for advanced users. {searchTerms} is replaced by the entered search term."
+              defaultMessage="Warning: This functionality is intended for advanced users. '{searchTerms}' is replaced by the entered search term."
               description="Warning about using custom search providers"
             />
           </p>
@@ -77,7 +78,7 @@ const SearchSettings: FC<Props> = ({ data = defaultData, setData }) => {
 
       <label>
         <FormattedMessage
-          id="plugins.search.placeholder"
+          id="plugins.search.placeholderLabel"
           defaultMessage="Placeholder Text"
           description="Search placeholder text input label"
         />
@@ -219,9 +220,9 @@ const SearchSettings: FC<Props> = ({ data = defaultData, setData }) => {
       {data.suggestionsEngine && (
         <label>
           <FormattedMessage
-            id="plugins.search.suggestionsQuanitity"
-            defaultMessage="Suggestion Quanitity"
-            description="Suggestion Quanitity title"
+            id="plugins.search.suggestionsQuantity"
+            defaultMessage="Suggestion Quantity"
+            description="Number of search suggestions to show"
           />
           <input
             type="number"

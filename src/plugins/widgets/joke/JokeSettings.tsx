@@ -1,9 +1,10 @@
-import React from "react";
+import type { FC } from "react";
 import { FormattedMessage } from "react-intl";
-import { MINUTES, HOURS } from "../../../utils";
-import categories from "./categories";
-import { Props, defaultData, JokeAPICategory } from "./types";
+
 import { pluginMessages, timingMessages } from "../../../locales/messages";
+import { HOURS, MINUTES } from "../../../utils";
+import categories from "./categories";
+import { defaultData, JokeAPICategory, Props } from "./types";
 
 function updateSelectedCategories(
   existingCategories: JokeAPICategory[],
@@ -43,7 +44,7 @@ function updateSelectedCategories(
   return categories.length === 0 ? existingCategories : categories;
 }
 
-const JokeSettings: React.FC<Props> = ({ data = defaultData, setData }) => {
+const JokeSettings: FC<Props> = ({ data = defaultData, setData }) => {
   return (
     <div className="JokeSettings">
       <h5>
@@ -106,12 +107,7 @@ const JokeSettings: React.FC<Props> = ({ data = defaultData, setData }) => {
                   setData({ ...data, categories });
                 }}
               />{" "}
-              <FormattedMessage
-                id={category.name}
-                defaultMessage={
-                  category.key.charAt(0).toUpperCase() + category.key.slice(1)
-                }
-              />
+              <FormattedMessage {...category.message} />
             </label>
           );
         })}
