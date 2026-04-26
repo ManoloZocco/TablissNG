@@ -301,6 +301,7 @@ const Widget: FC<Props> = ({ plugin, onMoveDown, onMoveUp, onRemove }) => {
                 <FormattedMessage
                   id="settings.textOutline"
                   defaultMessage="Text outline"
+                  description="Checkbox label to enable a text outline around the widget"
                 />
               </label>
 
@@ -310,6 +311,7 @@ const Widget: FC<Props> = ({ plugin, onMoveDown, onMoveUp, onRemove }) => {
                     <FormattedMessage
                       id="settings.outlineStyle"
                       defaultMessage="Outline Style"
+                      description="Dropdown label for the outline style"
                     />
                     <select
                       value={plugin.display.textOutlineStyle ?? "basic"}
@@ -325,12 +327,14 @@ const Widget: FC<Props> = ({ plugin, onMoveDown, onMoveUp, onRemove }) => {
                         <FormattedMessage
                           id="settings.basicOutline"
                           defaultMessage="Basic (Text Shadow)"
+                          description="Dropdown option for basic text shadow outline"
                         />
                       </option>
                       <option value="advanced">
                         <FormattedMessage
                           id="settings.advancedOutline"
                           defaultMessage="Advanced (Stroke)"
+                          description="Dropdown option for advanced text stroke outline"
                         />
                       </option>
                     </select>
@@ -340,12 +344,14 @@ const Widget: FC<Props> = ({ plugin, onMoveDown, onMoveUp, onRemove }) => {
                     <FormattedMessage
                       id="settings.basicModeDescription"
                       defaultMessage="Basic mode uses a text shadow that can only have one size."
+                      description="Description text explaining the basic outline mode"
                     />
                   </p>
                   <p>
                     <FormattedMessage
                       id="settings.advancedModeDescription"
                       defaultMessage="Advanced mode uses a second element with a text stroke and allows any size."
+                      description="Description text explaining the advanced outline mode"
                     />
                   </p>
 
@@ -353,6 +359,7 @@ const Widget: FC<Props> = ({ plugin, onMoveDown, onMoveUp, onRemove }) => {
                     <FormattedMessage
                       id="settings.outlineColor"
                       defaultMessage="Outline Color"
+                      description="Color picker label for the outline color"
                     />
                     <input
                       type="color"
@@ -368,6 +375,7 @@ const Widget: FC<Props> = ({ plugin, onMoveDown, onMoveUp, onRemove }) => {
                       <FormattedMessage
                         id="settings.outlineSize"
                         defaultMessage="Outline Size"
+                        description="Input label for the outline size"
                       />
                       <input
                         type="number"

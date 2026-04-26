@@ -1,10 +1,10 @@
 import { type FC } from "react";
-import Select from "react-dropdown-select";
 import { defineMessages, FormattedMessage, useIntl } from "react-intl";
 
 import { backgroundMessages } from "../../../locales/messages";
 import { DebounceInput } from "../../shared";
 import BaseSettings from "../base/BaseSettings";
+import Select from "./Select/Select";
 import topics from "./topics.json";
 import { defaultData, Props } from "./types";
 
@@ -18,6 +18,11 @@ const messages = defineMessages({
     id: "backgrounds.unsplash.collectionId.placeholder",
     defaultMessage: "Collection ID number",
     description: "Placeholder text for collection ID input",
+  },
+  topicsPlaceholder: {
+    id: "backgrounds.unsplash.topics.placeholder",
+    defaultMessage: "Select topics...",
+    description: "Placeholder text for the unsplash topics multi-select input",
   },
 });
 
@@ -96,52 +101,10 @@ const UnsplashSettings: FC<Props> = ({ data = defaultData, setData }) => {
                 topics: selected.map((item) => item.value),
               });
             }}
-            multi
             searchable
             dropdownHeight="300px"
-            style={{
-              width: "100%",
-              marginTop: "0.5em",
-              borderRadius: "0.2em",
-            }}
-            contentRenderer={({ props }) => {
-              if (props.values.length === 0) {
-                return (
-                  <div>
-                    <FormattedMessage
-                      id="backgrounds.unsplash.topics.placeholder"
-                      defaultMessage="Select topics..."
-                      description="Placeholder text for empty topic selection"
-                    />
-                  </div>
-                );
-              }
-              return (
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "0.25em",
-                    padding: "0.25em",
-                  }}
-                >
-                  {props.values.map((item: any) => (
-                    <span
-                      key={item.value}
-                      style={{
-                        background: "var(--accent-color)",
-                        color: "var(--text-on-primary)",
-                        padding: "2px 8px",
-                        borderRadius: "1em",
-                        fontSize: "0.9em",
-                      }}
-                    >
-                      {item.label}
-                    </span>
-                  ))}
-                </div>
-              );
-            }}
+            placeholder={intl.formatMessage(messages.topicsPlaceholder)}
+            style={{ marginTop: "0.5em" }}
           />
           <i>
             <FormattedMessage
