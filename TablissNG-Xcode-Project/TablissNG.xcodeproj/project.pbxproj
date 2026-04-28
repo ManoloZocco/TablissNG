@@ -255,7 +255,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\nREPO_ROOT=\"${SRCROOT}/..\"\nSRC=\"${REPO_ROOT}/dist/safari/\"\nDEST=\"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\n\nif [ ! -d \"$SRC\" ]; then\n  echo \"note: Building Safari extension...\"\n  cd \"$REPO_ROOT\"\n  pnpm install\n  pnpm run build:safari\nfi\n\nmkdir -p \"$DEST\"\nrsync -a --exclude '.DS_Store' \"$SRC\" \"$DEST\"\n";
+			shellScript = "set -e\nREPO_ROOT=\"${SRCROOT}/..\"\nSRC=\"${REPO_ROOT}/dist/safari/\"\nDEST=\"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nPREBUILD=\"${REPO_ROOT}/scripts/prebuild-xcode\"\n\nif [ ! -d \"$SRC\" ]; then\n  echo \"note: Building Safari extension...\"\n  sh \"$PREBUILD\"\nfi\n\nmkdir -p \"$DEST\"\nrsync -a --exclude '.DS_Store' \"$SRC\" \"$DEST\"\n";
 		};
 		A1B2C3D52F991AF70081EEDF /* Sync Version From package.json */ = {
 			isa = PBXShellScriptBuildPhase;
