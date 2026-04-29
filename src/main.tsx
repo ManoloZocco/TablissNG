@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 
 import { capture } from "./errorHandler";
-import { register as registerServiceWorker } from "./serviceWorker";
+import { register as registerServiceWorker } from "./registerServiceWorker";
 import { preloadBaseIcons } from "./utils";
 import Root from "./views/Root";
 

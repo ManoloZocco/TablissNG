@@ -53,4 +53,12 @@ export default defineConfig(
       "@typescript-eslint/no-require-imports": "off",
     },
   },
+  {
+    files: ["src/service-worker.js"],
+    languageOptions: {
+      globals: {
+        ...globals.serviceworker,
+      },
+    },
+  },
 );
