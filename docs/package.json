@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "sync": "node sync-assets.js",
-    "start": "pnpm run sync && docusaurus start",
+    "start": "node sync-assets.js --watch --serve",
     "build": "pnpm run sync && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
