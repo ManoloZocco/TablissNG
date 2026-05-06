@@ -13,18 +13,6 @@ import { Settings } from "./settings";
 import Errors from "./shared/Errors";
 import StoreError from "./shared/StoreError";
 
-function setHighlighting() {
-  const checked = db.cache.get("highlightingEnabled");
-  const element = document.querySelector(".Widgets") as HTMLElement;
-  if (element) {
-    if (checked || checked === undefined) {
-      element.style.userSelect = "auto";
-    } else {
-      element.style.userSelect = "none";
-    }
-  }
-}
-
 const messages = defineMessages({
   pageTitle: {
     id: "app.pageTitle",
@@ -68,12 +56,17 @@ const Root: FC = () => {
   const themePreference = useValue(db, "themePreference");
   const systemIsDark = useSystemTheme();
   const accent = useValue(db, "accent");
+  const highlightingEnabled = useValue(db, "highlightingEnabled");
 
   useEffect(() => {
     const isDark =
       themePreference === "system" ? systemIsDark : themePreference === "dark";
-    document.body.className = isDark ? "dark" : "";
-  }, [themePreference, systemIsDark]);
+    document.body.classList.toggle("dark", isDark);
+    document.body.classList.toggle(
+      "no-highlight",
+      highlightingEnabled === false,
+    );
+  }, [themePreference, systemIsDark, highlightingEnabled]);
 
   // Update CSS variable when accent color changes
   useEffect(() => {
@@ -124,9 +117,6 @@ const Root: FC = () => {
     subscriptions.then(() => {
       setReady(true);
       migrate();
-      setTimeout(() => {
-        setHighlighting();
-      }, 1);
     });
 
     return () => {

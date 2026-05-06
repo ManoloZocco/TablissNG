@@ -39,7 +39,7 @@ const StoreError: FC<Props> = ({ onClose }) => {
             description="Third paragraph linking to the support guide and GitHub issues. Tags wrap clickable link text."
             values={{
               guide: (chunks) => (
-                <a href="https://bookcatkid.github.io/TablissNG/docs/support/storage-errors">
+                <a href="https://tablissng.smrff.dev/support/storage-errors">
                   {chunks}
                 </a>
               ),

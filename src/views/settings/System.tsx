@@ -2,7 +2,6 @@ import type { FC } from "react";
 import { defineMessages, FormattedMessage, useIntl } from "react-intl";
 
 import { db, FaviconMode } from "../../db/state";
-import { useSystemTheme } from "../../hooks";
 import { useKey } from "../../lib/db/react";
 import { localeOptions } from "../../locales/registry";
 import { Icon, IconButton } from "../shared";
@@ -76,25 +75,6 @@ const System: FC = () => {
   );
   const [favicon, setFavicon] = useKey(db, "favicon");
   const [accent, setAccent] = useKey(db, "accent");
-  const systemIsDark = useSystemTheme();
-
-  function setHighlighting(checked: boolean) {
-    setHighlightingEnabled(checked);
-    const element = document.querySelector(".Widgets") as HTMLElement;
-    if (element) {
-      if (checked) {
-        element.style.userSelect = "auto";
-      } else {
-        element.style.userSelect = "none";
-      }
-    }
-  }
-
-  const handleThemeChange = (value: "light" | "dark" | "system") => {
-    setThemePreference(value);
-    const isDark = value === "system" ? systemIsDark : value === "dark";
-    document.body.className = isDark ? "dark" : "";
-  };
 
   return (
     <div>
@@ -150,7 +130,7 @@ const System: FC = () => {
         <select
           value={themePreference}
           onChange={(e) =>
-            handleThemeChange(e.target.value as "light" | "dark" | "system")
+            setThemePreference(e.target.value as "light" | "dark" | "system")
           }
         >
           <option value="light">
@@ -363,7 +343,7 @@ const System: FC = () => {
         <input
           type="checkbox"
           checked={highlightingEnabled}
-          onChange={(e) => setHighlighting(e.target.checked)}
+          onChange={(e) => setHighlightingEnabled(e.target.checked)}
         />
       </label>
       <label className="u-grid-2col">

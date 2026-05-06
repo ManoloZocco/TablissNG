@@ -56,11 +56,24 @@ pnpm run dev:firefox
 pnpm run dev:safari
 ```
 
-The output will be in the `dist/` directory. You can then load this as an "unpacked extension" in your browser.
+The output will be in the `dist/` directory.
+
+### Loading the extension
+
+- **Chromium**
+  1.  Go to [chrome://extensions](chrome://extensions).
+  2.  Enable Developer Mode (top right).
+  3.  Click "Load unpacked".
+  4.  Select the `dist/chromium` folder.
+
+- **Firefox**
+  1.  Go to [about:debugging#/runtime/this-firefox](about:debugging#/runtime/this-firefox).
+  2.  Click "Load Temporary Add-on".
+  3.  Select the `manifest.json` inside the `dist/firefox` folder.
 
 **Warning: Data Persistence Notice**
 
-Installing manual or nightly builds alongside the store version can cause configuration conflicts. Switching back from a manual build to a store version often requires a full re-installation, which **will erase your settings and data** unless you have exported them. Always [export your settings](https://bookcatkid.github.io/TablissNG/docs/guides/backup-and-export) before switching versions.
+Installing manual or nightly builds alongside the store version can cause configuration conflicts. Switching back from a manual build to a store version often requires a full re-installation, which **will erase your settings and data** unless you have exported them. Always [export your settings](https://tablissng.smrff.dev/guides/backup-and-export) before switching versions.
 
 ## Building for Production
 
