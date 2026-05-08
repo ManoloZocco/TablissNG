@@ -16,7 +16,7 @@ const Background: FC = () => {
   const plugin = getConfig(data.key);
 
   const sortedBackgroundConfigs = useMemo(() => {
-    return [...backgroundConfigs].sort((a, b) => {
+    return backgroundConfigs.toSorted((a, b) => {
       const nameA = intl.formatMessage(a.name);
       const nameB = intl.formatMessage(b.name);
       return nameA.localeCompare(nameB);
@@ -59,7 +59,11 @@ const Background: FC = () => {
 
           {plugin.settingsComponent && (
             <div className="settings">
-              <Plugin id={data.id} component={plugin.settingsComponent} />
+              <Plugin
+                id={data.id}
+                component={plugin.settingsComponent}
+                defaultData={plugin.defaultData}
+              />
             </div>
           )}
 

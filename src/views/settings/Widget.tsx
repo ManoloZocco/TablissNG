@@ -53,7 +53,9 @@ const Widget: FC<Props> = ({ plugin, onMoveDown, onMoveUp, onRemove }) => {
   const [isOpen, toggleIsOpen] = useToggle(onRemove === undefined);
   const intl = useIntl();
 
-  const { description, name, settingsComponent } = getConfig(plugin.key);
+  const { defaultData, description, name, settingsComponent } = getConfig(
+    plugin.key,
+  );
 
   const setDisplay = setWidgetDisplay.bind(null, plugin.id);
 
@@ -108,7 +110,11 @@ const Widget: FC<Props> = ({ plugin, onMoveDown, onMoveUp, onRemove }) => {
         <div>
           {settingsComponent && (
             <div className="settings">
-              <PluginContainer id={plugin.id} component={settingsComponent} />
+              <PluginContainer
+                id={plugin.id}
+                component={settingsComponent}
+                defaultData={defaultData}
+              />
             </div>
           )}
 

@@ -132,9 +132,11 @@ This connects everything together and exports the widget configuration.
 ```ts
 // index.ts
 import { defineMessages } from "react-intl";
+
 import { Config } from "../../types";
 import MyWidget from "./MyWidget";
 import MyWidgetSettings from "./MyWidgetSettings";
+import { defaultData } from "./types";
 
 const messages = defineMessages({
   name: {
@@ -153,6 +155,7 @@ const config: Config = {
   key: "widget/mywidget",
   name: messages.name,
   description: messages.description,
+  defaultData,
   dashboardComponent: MyWidget,
   settingsComponent: MyWidgetSettings,
 };
@@ -184,6 +187,13 @@ export const defaultData: Data = {
   name: "",
 };
 ```
+
+> **Keep `Data` flat.** `useApi` shallow-merges `defaultData` with the
+> stored data so newly-added fields fall back to their defaults. If you nest
+> an object (e.g. `display: { showIcon: true, fontSize: 14 }`) and the user
+> only saves part of it, the whole nested object is replaced and the other
+> defaults are lost. Prefer flat keys (`displayShowIcon`, `displayFontSize`)
+> instead.
 
 ### Register the Widget
 
