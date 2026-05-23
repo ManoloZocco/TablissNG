@@ -5,22 +5,19 @@ import { themes as prismThemes } from "prism-react-renderer";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "TablissNG Docs",
+  title: "TablissNG",
   titleDelimiter: "·",
-  tagline: "A beautiful, customizable New Tab page",
+  tagline: "A beautiful, private, and customizable new tab page",
   favicon: "img/icons/icon.svg",
+
+  url: "https://tablissng.smrff.dev",
+  baseUrl: "/",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true,
     faster: true,
   },
-
-  // Set the production url of your site here
-  url: "https://tablissng.smrff.dev",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // Docs are served at the site root; the web preview lives under /web/.
-  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -99,6 +96,7 @@ const config: Config = {
   plugins: ["docusaurus-plugin-sass"],
 
   themeConfig: {
+    image: "img/screenshots/screenshot_1.png",
     navbar: {
       title: "TablissNG",
       logo: {
@@ -195,12 +193,6 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
-    metadata: [
-      {
-        name: "google-site-verification",
-        content: "-jqlgm-10aLbyq4UgXkXf0JTZW7tXeB18i2XTAO8QJQ",
-      },
-    ],
   } satisfies Preset.ThemeConfig,
 };
 
