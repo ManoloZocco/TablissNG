@@ -265,46 +265,23 @@ const Settings: FC = () => {
         {BUILD_TARGET === "web" && <Persist />}
 
         {showStartupSection && (
-          <div className="Widget" style={{ marginTop: "1rem" }}>
+          <div className="Widget startup-url">
             <h4>
               <FormattedMessage {...messages.settingsStartupUrlTitle} />
             </h4>
-            <p
-              style={{
-                fontSize: "0.85em",
-                color: "var(--text-secondary)",
-                marginTop: "0.5rem",
-                marginBottom: "0.75rem",
-                textAlign: "left",
-              }}
-            >
+            <p>
               <FormattedMessage {...messages.settingsStartupUrlDescription} />
             </p>
-            <div
-              style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}
-            >
+            <div className="input-group">
               <input
                 type="text"
                 readOnly
                 value={startupUrl}
                 onClick={(e) => (e.target as HTMLInputElement).select()}
-                style={{
-                  margin: 0,
-                  textOverflow: "ellipsis",
-                  fontSize: "0.85em",
-                }}
               />
               <button
                 onClick={handleCopy}
                 className="button button--primary"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  padding: "0.5em 0.8em",
-                  height: "34px",
-                  margin: 0,
-                }}
                 title={intl.formatMessage(
                   copied ? messages.copySuccess : messages.copyTooltip,
                 )}
@@ -312,10 +289,7 @@ const Settings: FC = () => {
                   copied ? messages.copySuccess : messages.copyTooltip,
                 )}
               >
-                <Icon
-                  icon={copied ? "feather:check" : "feather:copy"}
-                  style={{ fontSize: "1.1em" }}
-                />
+                <Icon icon={copied ? "feather:check" : "feather:copy"} />
               </button>
             </div>
           </div>
