@@ -539,7 +539,7 @@
   "settings.selectFile": "Select Image",
   "settings.startupUrl.copySuccess": "Copiato!",
   "settings.startupUrl.copyTooltip": "Copia URL negli appunti",
-  "settings.startupUrl.description": "Per i browser come Vivaldi, copia questo URL per impostare TablissNG come pagina iniziale o all'avvio.",
+  "settings.startupUrl.description": "Alcuni browser impediscono alle estensioni di impostare automaticamente la pagina iniziale o di avvio. Puoi copiare questo URL e incollarlo nelle impostazioni della pagina iniziale o di avvio del tuo browser per caricare TablissNG all'avvio.",
   "settings.startupUrl.title": "URL di avvio del browser",
   "settings.support.contribute": "Contribuisci al progetto! 😍🌟",
   "settings.textOutline": "Text outline",

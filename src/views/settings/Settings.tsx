@@ -60,7 +60,7 @@ const messages = defineMessages({
   settingsStartupUrlDescription: {
     id: "settings.startupUrl.description",
     defaultMessage:
-      "For browsers like Vivaldi, copy this URL to set TablissNG as your startup page.",
+      "Some browsers prevent extensions from overriding the startup or home page. Copy this URL and paste it into your browser's startup or home page settings to load TablissNG when starting the browser.",
     description:
       "Description explaining how to use the extension URL for startup pages",
   },
