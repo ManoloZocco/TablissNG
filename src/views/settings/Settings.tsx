@@ -93,10 +93,19 @@ const Settings: FC = () => {
     BUILD_TARGET !== "web" && window.location.protocol.endsWith("-extension:");
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(startupUrl).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard
+        .writeText(startupUrl)
+        .then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2000);
+        })
+        .catch((err) => {
+          console.error("Failed to copy URL to clipboard:", err);
+        });
+    } else {
+      console.warn("Clipboard API writeText not available");
+    }
   };
 
   const settingsOnRight =
