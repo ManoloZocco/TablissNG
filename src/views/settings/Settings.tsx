@@ -305,7 +305,12 @@ const Settings: FC = () => {
                   height: "34px",
                   margin: 0,
                 }}
-                title={intl.formatMessage(messages.copyTooltip)}
+                title={intl.formatMessage(
+                  copied ? messages.copySuccess : messages.copyTooltip,
+                )}
+                aria-label={intl.formatMessage(
+                  copied ? messages.copySuccess : messages.copyTooltip,
+                )}
               >
                 <Icon
                   icon={copied ? "feather:check" : "feather:copy"}
