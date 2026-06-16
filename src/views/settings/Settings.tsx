@@ -86,6 +86,18 @@ const Settings: FC = () => {
   const [isHovered, setIsHovered] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const planeRef = useRef<HTMLDivElement>(null);
+  const [copied, setCopied] = useState(false);
+
+  const startupUrl = window.location.origin + window.location.pathname;
+  const showStartupSection =
+    BUILD_TARGET !== "web" && window.location.protocol.endsWith("-extension:");
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(startupUrl).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   const settingsOnRight =
     settingsIconPosition === "bottomRight" ||
@@ -242,6 +254,58 @@ const Settings: FC = () => {
         </p>
         {/* Only relevant for the web build where IndexedDB may be evicted. Hide for extension builds to avoid confusing prompts in Firefox/Chromium. */}
         {BUILD_TARGET === "web" && <Persist />}
+
+        {showStartupSection && (
+          <div className="Widget" style={{ marginTop: "1rem" }}>
+            <h4>
+              <FormattedMessage {...messages.settingsStartupUrlTitle} />
+            </h4>
+            <p
+              style={{
+                fontSize: "0.85em",
+                color: "var(--text-secondary)",
+                marginTop: "0.5rem",
+                marginBottom: "0.75rem",
+                textAlign: "left",
+              }}
+            >
+              <FormattedMessage {...messages.settingsStartupUrlDescription} />
+            </p>
+            <div
+              style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}
+            >
+              <input
+                type="text"
+                readOnly
+                value={startupUrl}
+                onClick={(e) => (e.target as HTMLInputElement).select()}
+                style={{
+                  margin: 0,
+                  textOverflow: "ellipsis",
+                  fontSize: "0.85em",
+                }}
+              />
+              <button
+                onClick={handleCopy}
+                className="button button--primary"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "0.5em 0.8em",
+                  height: "34px",
+                  margin: 0,
+                }}
+                title={intl.formatMessage(messages.copyTooltip)}
+              >
+                <Icon
+                  icon={copied ? "feather:check" : "feather:copy"}
+                  style={{ fontSize: "1.1em" }}
+                />
+              </button>
+            </div>
+          </div>
+        )}
 
         <div style={{ textAlign: "center" }} className="Widget">
           <h4>
