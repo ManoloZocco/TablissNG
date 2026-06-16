@@ -52,6 +52,29 @@ const messages = defineMessages({
     description:
       "Links for import/export/reset at the bottom of settings. Uses XML-like tags to style each action word as a clickable link.",
   },
+  settingsStartupUrlTitle: {
+    id: "settings.startupUrl.title",
+    defaultMessage: "Browser Startup URL",
+    description: "Title for the browser startup URL copy section",
+  },
+  settingsStartupUrlDescription: {
+    id: "settings.startupUrl.description",
+    defaultMessage:
+      "For browsers like Vivaldi, copy this URL to set TablissNG as your startup page.",
+    description:
+      "Description explaining how to use the extension URL for startup pages",
+  },
+  copyTooltip: {
+    id: "settings.startupUrl.copyTooltip",
+    defaultMessage: "Copy URL to clipboard",
+    description: "Tooltip for the copy URL button",
+  },
+  copySuccess: {
+    id: "settings.startupUrl.copySuccess",
+    defaultMessage: "Copied!",
+    description:
+      "Toast or indicator text shown after successfully copying the URL",
+  },
 });
 
 const Settings: FC = () => {
